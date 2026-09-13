@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard Pro — PC IPNU-IPPNU Kota Blitar</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dash-bg: #0B131A;
+    --dash-card: #131F2A;
+    --dash-card-hover: #1A2A3A;
+    --dash-border: #223548;
+    
+    --tosca-950: #021920; 
+    --tosca-900: #042A33; 
+    --tosca-glow: #22D3EE;
+    --tosca-accent: #06B6D4;
+    --pink-ippnu: #EC4899;
+
+    --white: #FFFFFF;
+    --ink-dark: #F8FAFC;
+    --ink-muted: #94A3B8;
+    
+    --radius-lg: 16px;
+    --radius-md: 10px;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink-dark);
+    background-color: var(--dash-bg);
+    overflow-x: hidden;
+  }
+
+  /* ================= LOGIN MODAL PRO ================= */
+  #loginOverlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 0%, rgba(14, 96, 115, 0.6) 0%, transparent 70%),
+                linear-gradient(180deg, var(--tosca-950) 0%, var(--tosca-900) 50%, #082229 100%);
+    backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: center; z-index: 9999; padding: 20px;
+  }
+  .login-card-pro {
+    background: #111C24; border-radius: 24px; padding: 45px 38px; width: 100%; max-width: 440px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6); text-align: center; border: 1px solid rgba(34, 211, 238, 0.2);
+    position: relative; overflow: hidden;
+  }
+  .login-card-pro::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--tosca-glow), var(--tosca-accent));
+  }
+  .login-brand-icon {
+    width: 65px; height: 65px; background: rgba(34, 211, 238, 0.1); color: var(--tosca-glow);
+    font-size: 24px; font-weight: 800; border-radius: 18px; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; border: 1px solid rgba(34, 211, 238, 0.3);
+  }
+  .login-card-pro h2 { font-size: 24px; font-weight: 800; color: #FFFFFF; margin-bottom: 8px; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .login-card-pro p { font-size: 13.5px; color: var(--ink-muted); margin-bottom: 28px; line-height: 1.6; }
+  .login-field-group { margin-bottom: 18px; text-align: left; }
+  .login-field-group label { font-size: 13px; font-weight: 700; color: #E2E8F0; margin-bottom: 6px; display: block; }
+  .login-field-group input {
+    width: 100%; padding: 13px 16px; border: 1.5px solid var(--dash-border);
+    border-radius: 12px; font-size: 14px; background: #080E13; color: #FFFFFF; outline: none; transition: all 0.2s;
+  }
+  .login-field-group input:focus { border-color: var(--tosca-glow); box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.15); }
+  .login-btn-submit {
+    width: 100%; padding: 14px; background: linear-gradient(135deg, var(--tosca-glow), var(--tosca-accent));
+    color: var(--tosca-950); border: none; border-radius: 12px; font-weight: 800; font-size: 15px; cursor: pointer;
+    transition: all 0.2s; margin-top: 10px; box-shadow: 0 4px 20px rgba(34, 211, 238, 0.35); font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .login-btn-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(34, 211, 238, 0.5); }
+  .login-error-msg { background: rgba(239, 68, 68, 0.15); color: #FCA5A5; font-size: 13px; padding: 10px; border-radius: 8px; margin-top: 15px; display: none; font-weight: 600; border: 1px solid rgba(239, 68, 68, 0.3); }
+  .login-back-link { margin-top: 22px; display: inline-block; font-size: 13px; font-weight: 600; color: var(--ink-muted); text-decoration: none; }
+  .login-back-link:hover { color: var(--tosca-glow); }
+
+  /* ================= LAYOUT DASHBOARD ================= */
+  #mainDashboardContent { display: none; }
+  .dashboard-wrapper { display: flex; min-height: 100vh; }
+  
+  /* Sidebar */
+  .dash-sidebar {
+    width: 270px; background: var(--dash-card); border-right: 1px solid var(--dash-border);
+    display: flex; flex-direction: column; position: fixed; top: 0; bottom: 0; left: 0; z-index: 100;
+  }
+  .sidebar-brand { padding: 24px 22px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--dash-border); }
+  .sidebar-logo {
+    width: 40px; height: 40px; background: linear-gradient(135deg, var(--tosca-glow), var(--tosca-accent));
+    color: var(--tosca-950); font-weight: 800; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px;
+  }
+  .sidebar-title .t1 { font-size: 14px; font-weight: 800; color: #FFFFFF; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .sidebar-title .t2 { font-size: 11px; color: var(--tosca-glow); font-weight: 600; }
+
+  .sidebar-menu { padding: 20px 14px; display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; }
+  .menu-category { font-size: 10.5px; font-weight: 800; color: var(--ink-muted); letter-spacing: 1px; padding: 0 12px; margin-bottom: 6px; text-transform: uppercase; }
+
+  .menu-item {
+    display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: 10px;
+    color: var(--ink-muted); font-size: 13.5px; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer;
+  }
+  .menu-item:hover, .menu-item.active { background: rgba(34, 211, 238, 0.1); color: var(--tosca-glow); }
+  .menu-item.active-ippnu { background: rgba(236, 72, 153, 0.15) !important; color: var(--pink-ippnu) !important; }
+  .menu-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  .sidebar-footer { padding: 20px; border-top: 1px solid var(--dash-border); }
+  .logout-btn-side {
+    width: 100%; background: rgba(239, 68, 68, 0.1); color: #FCA5A5; border: 1px solid rgba(239, 68, 68, 0.2);
+    padding: 11px; border-radius: 10px; font-weight: 700; font-size: 13.5px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .logout-btn-side:hover { background: rgba(239, 68, 68, 0.2); color: #FFFFFF; }
+
+  /* Main Content Area */
+  .dash-main-content { margin-left: 270px; flex: 1; padding: 30px 40px; }
+  
+  .dash-topbar {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;
+    background: var(--dash-card); padding: 18px 25px; border-radius: var(--radius-lg); border: 1px solid var(--dash-border);
+  }
+  .topbar-welcome h1 { font-size: 20px; font-weight: 800; color: #FFFFFF; margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .topbar-welcome p { font-size: 13px; color: var(--ink-muted); margin: 2px 0 0 0; }
+  
+  .admin-profile-pill { display: flex; align-items: center; gap: 12px; background: #0B131A; padding: 8px 16px; border-radius: 50px; border: 1px solid var(--dash-border); }
+  .admin-avatar { width: 32px; height: 32px; background: var(--tosca-glow); color: var(--tosca-950); font-weight: 800; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+  .admin-name { font-size: 13.5px; font-weight: 700; color: #FFFFFF; }
+
+  /* Stats Grid */
+  .dash-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 30px; }
+  .stat-card-pro {
+    background: var(--dash-card); border: 1px solid var(--dash-border); border-radius: var(--radius-lg);
+    padding: 22px; position: relative; overflow: hidden; transition: transform 0.2s;
+  }
+  .stat-card-pro:hover { transform: translateY(-3px); border-color: rgba(34, 211, 238, 0.4); }
+  .stat-card-pro::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--tosca-glow), var(--tosca-accent));
+  }
+  .stat-label { font-size: 12px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .stat-val { font-size: 30px; font-weight: 800; color: #FFFFFF; margin: 8px 0 0 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+  /* Panel Controls */
+  .panel-top-controls { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+  .search-box-input {
+    background: #080E13; border: 1.5px solid var(--dash-border); padding: 10px 16px; border-radius: 10px;
+    color: #FFFFFF; font-size: 13.5px; outline: none; width: 280px; transition: border-color 0.2s;
+  }
+  .search-box-input:focus { border-color: var(--tosca-glow); }
+
+  .btn-add-new {
+    background: linear-gradient(135deg, var(--tosca-glow), var(--tosca-accent)); color: var(--tosca-950);
+    border: none; padding: 10px 18px; border-radius: 10px; font-weight: 800; font-size: 13.5px; cursor: pointer;
+    transition: all 0.2s; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; gap: 6px;
+  }
+  .btn-add-new:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(34, 211, 238, 0.4); }
+  .btn-add-ippnu { background: linear-gradient(135deg, #F472B6, var(--pink-ippnu)) !important; color: #FFFFFF !important; }
+
+  .dash-panel {
+    background: var(--dash-card); border: 1px solid var(--dash-border); border-radius: var(--radius-lg);
+    padding: 28px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+  .dash-panel h3 { font-size: 18px; font-weight: 800; color: #FFFFFF; margin: 0 0 4px 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .dash-panel p { font-size: 13.5px; color: var(--ink-muted); margin: 0; }
+
+  /* Tables */
+  .table-responsive { width: 100%; overflow-x: auto; margin-top: 15px; }
+  .modern-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13.5px; }
+  .modern-table th { background: #0B131A; color: var(--ink-muted); padding: 14px 18px; font-weight: 700; border-bottom: 1px solid var(--dash-border); white-space: nowrap; }
+  .modern-table td { padding: 14px 18px; border-bottom: 1px solid var(--dash-border); color: #E2E8F0; vertical-align: middle; }
+  .modern-table tr:hover { background: rgba(255, 255, 255, 0.02); }
+
+  .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 50px; font-size: 11.5px; font-weight: 700; }
+  .status-badge.pending { background: rgba(245, 158, 11, 0.15); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.3); }
+  .status-badge.verified { background: rgba(34, 211, 238, 0.15); color: var(--tosca-glow); border: 1px solid rgba(34, 211, 238, 0.3); }
+  .status-badge.done { background: rgba(16, 185, 129, 0.15); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.3); }
+  
+  .org-tag { display: inline-block; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; }
+  .org-tag.ipnu { background: rgba(34, 211, 238, 0.15); color: var(--tosca-glow); border: 1px solid rgba(34, 211, 238, 0.3); }
+  .org-tag.ippnu { background: rgba(236, 72, 153, 0.15); color: var(--pink-ippnu); border: 1px solid rgba(236, 72, 153, 0.3); }
+
+  .file-chip {
+    display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.06);
+    border: 1px solid var(--dash-border); padding: 4px 10px; border-radius: 6px; font-size: 12px; color: var(--tosca-glow); text-decoration: none; transition: background 0.2s;
+  }
+  .file-chip:hover { background: rgba(34, 211, 238, 0.15); }
+
+  .status-select {
+    background: #080E13; border: 1.5px solid var(--dash-border); color: #FFFFFF; padding: 6px 10px;
+    border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; outline: none;
+  }
+  .status-select:focus { border-color: var(--tosca-glow); }
+
+  /* ================= MODAL ================= */
+  .modal-backdrop {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(6px);
+    display: none; align-items: center; justify-content: center; z-index: 999; padding: 20px;
+  }
+  .modal-content-box {
+    background: #111C24; border: 1px solid var(--dash-border); border-radius: var(--radius-lg);
+    width: 100%; max-width: 580px; padding: 30px; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    max-height: 90vh; overflow-y: auto;
+  }
+  .modal-content-box h3 { font-size: 18px; font-weight: 800; color: #FFFFFF; margin: 0 0 18px 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .modal-form-grid { display: flex; flex-direction: column; gap: 14px; }
+  .modal-form-grid label { font-size: 12.5px; font-weight: 700; color: #CBD5E1; }
+  .modal-form-grid input, .modal-form-grid select {
+    background: #080E13; border: 1.5px solid var(--dash-border); padding: 11px 14px;
+    border-radius: 10px; color: #FFFFFF; font-size: 13.5px; outline: none; width: 100%;
+  }
+  .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+  .btn-cancel { background: transparent; color: var(--ink-muted); border: 1px solid var(--dash-border); padding: 10px 18px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+  .btn-save { background: var(--tosca-glow); color: var(--tosca-950); border: none; padding: 10px 20px; border-radius: 8px; font-weight: 800; cursor: pointer; }
+
+  @media (max-width: 960px) {
+    .dash-sidebar { width: 70px; }
+    .sidebar-title, .menu-item span, .menu-category, .sidebar-footer span { display: none; }
+    .dash-main-content { margin-left: 70px; padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- OVERLAY LOGIN -->
+<div id="loginOverlay">
+  <div class="login-card-pro">
+    <div class="login-brand-icon">PC</div>
+    <h2>Admin Portal Pro</h2>
+    <p>Autentikasi tingkat lanjut untuk mengontrol basis data sistem informasi PC IPNU-IPPNU Kota Blitar.</p>
+    
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <div class="login-field-group">
+        <label>Username Admin</label>
+        <input type="text" id="adminUser" placeholder="Masukkan username..." required autocomplete="username">
+      </div>
+      
+      <div class="login-field-group">
+        <label>Password Akses</label>
+        <input type="password" id="adminPassword" placeholder="Masukkan password..." required autocomplete="current-password">
+      </div>
+
+      <button type="submit" class="login-btn-submit">Buka Dashboard ➔</button>
+      
+      <div id="loginError" class="login-error-msg">⚠️ Autentikasi Gagal! Periksa kembali username & password.</div>
+    </form>
+
+    <div>
+      <a href="index.html" class="login-back-link">← Kembali ke Beranda Utama</a>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD UTAMA -->
+<div id="mainDashboardContent">
+  <div class="dashboard-wrapper">
+    
+    <!-- SIDEBAR -->
+    <aside class="dash-sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-logo">PC</div>
+        <div class="sidebar-title">
+          <div class="t1">IPNU-IPPNU</div>
+          <div class="t2">Admin Control</div>
+        </div>
+      </div>
+      
+      <div class="sidebar-menu">
+        <div class="menu-category">UTAMA</div>
+        <a class="menu-item active" onclick="switchTab('overview', event)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Ringkasan Sistem</span>
+        </a>
+
+        <div class="menu-category" style="margin-top: 16px; color: var(--tosca-glow);">PANEL IPNU</div>
+        <a class="menu-item" onclick="switchTab('ipnu-kader', event)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>Data Kader IPNU</span>
+        </a>
+        <a class="menu-item" onclick="switchTab('ipnu-surat', event)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span>Surat &amp; SK IPNU</span>
+        </a>
+
+        <div class="menu-category" style="margin-top: 16px; color: var(--pink-ippnu);">PANEL IPPNU</div>
+        <a class="menu-item" onclick="switchTab('ippnu-kader', event)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>Data Kader IPPNU</span>
+        </a>
+        <a class="menu-item" onclick="switchTab('ippnu-surat', event)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span>Surat &amp; SK IPPNU</span>
+        </a>
+
+        <div class="menu-category" style="margin-top: 16px;">AKSES</div>
+        <a href="../index.html" class="menu-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Lihat Website Utama</span>
+        </a>
+      </div>
+
+      <div class="sidebar-footer">
+        <button onclick="handleLogout()" class="logout-btn-side">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <span>Keluar Sesi</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- KONTEN UTAMA -->
+    <main class="dash-main-content">
+      
+      <div class="dash-topbar">
+        <div class="topbar-welcome">
+          <h1 id="pageTitle">Ringkasan Sistem &amp; Layanan</h1>
+          <p id="pageDesc">Sistem Pemantauan Layanan Digital &amp; Basis Data Kaderisasi Terpusat PC IPNU-IPPNU Kota Blitar.</p>
+        </div>
+        <div class="admin-profile-pill">
+          <div class="admin-avatar">AD</div>
+          <div class="admin-name">Super Admin</div>
+        </div>
+      </div>
+
+      <!-- Panel Tabel -->
+      <div class="dash-panel">
+        <div class="panel-top-controls">
+          <div>
+            <h3 id="tableTitle">Daftar Pengajuan Layanan &amp; Administrasi Terbaru</h3>
+            <p id="tableDesc">Daftar permohonan SK, Perizinan Kaderisasi, dan Validasi Sertifikat gabungan.</p>
+          </div>
+          <div style="display:flex; gap:10px; align-items:center;">
+            <input type="text" id="searchInput" class="search-box-input" placeholder="🔍 Cari nama/resi/file..." onkeyup="filterTable()">
+            <button id="btnAddRecord" class="btn-add-new" style="display:none;" onclick="openModalAdd()">+ Tambah Data</button>
+          </div>
+        </div>
+        
+        <div class="table-responsive">
+          <table class="modern-table">
+            <thead>
+              <tr id="tableHeader"></tr>
+            </thead>
+            <tbody id="dashTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- MODAL POPUP TAMBAH DATA -->
+<div class="modal-backdrop" id="modalAddData">
+  <div class="modal-content-box">
+    <h3 id="modalTitle">Tambah Data Baru</h3>
+    <form id="formModalAdd" onsubmit="handleSaveModal(event)">
+      <div class="modal-form-grid" id="modalFormFields"></div>
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" onclick="closeModalAdd()">Batal</button>
+        <button type="submit" class="btn-save">Simpan &amp; Arsipkan</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL POPUP DETAIL BERKAS -->
+<div class="modal-backdrop" id="modalDetailData">
+  <div class="modal-content-box">
+    <h3 style="color:var(--tosca-glow);">📄 Detail Arsip &amp; Berkas Digital</h3>
+    <div id="detailContentBody" style="font-size:13.5px; color:#E2E8F0; display:flex; flex-direction:column; gap:12px;"></div>
+    <div class="modal-actions" style="margin-top:25px;">
+      <button type="button" class="btn-cancel" onclick="closeModalDetail()">Tutup</button>
+      <button type="button" class="btn-save" onclick="alert('📥 Berkas berhasil diunduh ke perangkat Anda.')">Unduh Lampiran</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentActiveTab = 'overview';
+  
+  let mockDatabase = JSON.parse(localStorage.getItem('pc_admin_db')) || {
+    overview: [
+      { resi: 'SP-2026-001', jenis: 'Permohonan SK Baru', nama: 'Rian Hidayat', org: 'IPNU', basis: 'PAC Sananwetan', tgl: '10 Jun 2026', status: 'pending', file: 'Rekom_MWCNU_Sananwetan.pdf', telp: '081234567890' },
+      { resi: 'KAD-2026-004', jenis: 'Perizinan MAKESTA', nama: 'Siti Aminah', org: 'IPPNU', basis: 'PR Turi', tgl: '08 Jun 2026', status: 'verified', file: 'Proposal_Makesta_Turi.pdf', telp: '085678901234' },
+      { resi: 'CRT-2026-012', jenis: 'Validasi Sertifikat', nama: 'Ahmad Fauzi', org: 'IPNU', basis: 'PAC Kepanjenkidul', tgl: '05 Jun 2026', status: 'done', file: 'Scan_Sertifikat_Fauzi.jpg', telp: '089876543210' }
+    ],
+    ipnuKader: [
+      { id: 'KAD-IPNU-001', nama: 'Muhammad Rizky', jenjang: 'LAKMUD', basis: 'PAC Kepanjenkidul', thn: '2025', status: 'Aktif', file: 'Ijazah_Lakmud_Rizky.pdf' },
+      { id: 'KAD-IPNU-002', nama: 'Ahmad Syarifuddin', jenjang: 'MAKESTA', basis: 'PK MA Nurul Huda', thn: '2026', status: 'Aktif', file: 'Sertifikat_Makesta_Ahmad.pdf' }
+    ],
+    ipnuSurat: [
+      { no: 'SK-IPNU-01', perihal: 'Permohonan SK PAC Sukorejo', pemohon: 'M. Zainuddin', tgl: '12 Mei 2026', status: 'verified', file: 'Berita_Acara_Konanc_Sukorejo.pdf', telp: '081122334455' },
+      { no: 'REK-IPNU-04', perihal: 'Rekomendasi Kegiatan Eksternal', pemohon: 'Hasan Basri', tgl: '01 Jun 2026', status: 'pending', file: 'Surat_Undangan_Pemuda.pdf', telp: '082233445566' }
+    ],
+    ippnuKader: [
+      { id: 'KAD-IPPNU-001', nama: 'Nabila Putri', jenjang: 'LAKMUD', basis: 'PR Karangsari', thn: '2025', status: 'Aktif', file: 'Sertifikat_Lakmud_Nabila.pdf' },
+      { id: 'KAD-IPPNU-002', nama: 'Dewi Rahmawati', jenjang: 'MAKESTA', basis: 'PK SMA NU Blitar', thn: '2026', status: 'Aktif', file: 'Form_Kader_Dewi.xlsx' }
+    ],
+    ippnuSurat: [
+      { no: 'SK-IPPNU-01', perihal: 'Pengesahan SK PR Sananwetan', pemohon: 'Khadijah Az-Zahra', tgl: '01 Jun 2026', status: 'pending', file: 'Draf_Susunan_Pengurus_IPPNU.pdf', telp: '083344556677' }
+    ]
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("adminLoggedIn") === "true") {
+      document.getElementById("loginOverlay").style.display = "none";
+      document.getElementById("mainDashboardContent").style.display = "block";
+      renderTableData();
+    }
+  });
+
+  function handleLogin(event) {
+    event.preventDefault();
+    const userInput = document.getElementById("adminUser").value.trim();
+    const passInput = document.getElementById("adminPassword").value.trim();
+
+    if (userInput === "admin" && passInput === "ipnu") {
+      localStorage.setItem("adminLoggedIn", "true");
+      document.getElementById("loginOverlay").style.display = "none";
+      document.getElementById("mainDashboardContent").style.display = "block";
+      renderTableData();
+    } else {
+      document.getElementById("loginError").style.display = "block";
+      document.getElementById("adminPassword").value = "";
+    }
+  }
+
+  function handleLogout() {
+    localStorage.removeItem("adminLoggedIn");
+    location.reload();
+  }
+
+  function switchTab(tabName, evt) {
+    if(evt) evt.preventDefault();
+    currentActiveTab = tabName;
+
+    const items = document.querySelectorAll('.menu-item');
+    items.forEach(item => { item.classList.remove('active'); item.classList.remove('active-ippnu'); });
+
+    if(evt && evt.currentTarget) {
+      if(tabName.startsWith('ippnu')) evt.currentTarget.classList.add('active-ippnu');
+      else evt.currentTarget.classList.add('active');
+    }
+
+    const pageTitle = document.getElementById('pageTitle');
+    const pageDesc = document.getElementById('pageDesc');
+    const tableTitle = document.getElementById('tableTitle');
+    const tableDesc = document.getElementById('tableDesc');
+    const btnAddRecord = document.getElementById('btnAddRecord');
+
+    if(tabName === 'overview') {
+      pageTitle.innerText = "Ringkasan Sistem & Layanan";
+      pageDesc.innerText = "Sistem Pemantauan Layanan Digital & Basis Data Kaderisasi Terpusat PC IPNU-IPPNU Kota Blitar.";
+      tableTitle.innerText = "Daftar Pengajuan Layanan & Administrasi Terbaru";
+      tableDesc.innerText = "Daftar permohonan SK, Perizinan Kaderisasi, dan Validasi Sertifikat gabungan.";
+      btnAddRecord.style.display = "none";
+    } 
+    else if(tabName.startsWith('ipnu')) {
+      pageTitle.innerText = "Panel Administrasi IPNU Kota Blitar";
+      pageDesc.innerText = "Kelola basis data anggota, riwayat kaderisasi, dan pengajuan surat rekomendasi khusus IPNU.";
+      btnAddRecord.style.display = "flex";
+      btnAddRecord.className = "btn-add-new";
+      tableTitle.innerText = tabName === 'ipnu-kader' ? "Data Kader Terdaftar (IPNU)" : "Pengajuan Surat & SK (IPNU)";
+      tableDesc.innerText = tabName === 'ipnu-kader' ? "Daftar rekapitulasi anggota aktif IPNU di wilayah Kota Blitar." : "Daftar permohonan SK Kepengurusan & Rekomendasi IPNU.";
+    }
+    else if(tabName.startsWith('ippnu')) {
+      pageTitle.innerText = "Panel Administrasi IPPNU Kota Blitar";
+      pageDesc.innerText = "Kelola basis data anggota, riwayat pengkaderan, dan penerbitan berkas khusus IPPNU.";
+      btnAddRecord.style.display = "flex";
+      btnAddRecord.className = "btn-add-new btn-add-ippnu";
+      tableTitle.innerText = tabName === 'ippnu-kader' ? "Data Rekapitulasi Kader (IPPNU)" : "Pengajuan Surat & SK (IPPNU)";
+      tableDesc.innerText = tabName === 'ippnu-kader' ? "Daftar rekanita terdaftar dari tingkat PAC hingga Pimpinan Ranting." : "Pengajuan SK dan perizinan kegiatan IPPNU.";
+    }
+
+    renderTableData();
+  }
+
+  function updateStatus(index, category, newStatus) {
+    mockDatabase[category][index].status = newStatus;
+    localStorage.setItem('pc_admin_db', JSON.stringify(mockDatabase));
+    renderTableData();
+    alert(`✅ Status berhasil diperbarui menjadi: ${newStatus.toUpperCase()}`);
+  }
+
+  function renderTableData() {
+    const tableHeader = document.getElementById('tableHeader');
+    const tableBody = document.getElementById('dashTableBody');
+
+    if(currentActiveTab === 'overview') {
+      tableHeader.innerHTML = `<th>Nomor Resi</th><th>Jenis Layanan</th><th>Nama Pemohon</th><th>Organisasi</th><th>Basis</th><th>Lampiran Berkas</th><th>Ubah Status Proses</th><th>Aksi</th>`;
+      tableBody.innerHTML = mockDatabase.overview.map((item, idx) => `
+        <tr>
+          <td><b>${item.resi}</b></td>
+          <td>${item.jenis}</td>
+          <td>${item.nama}</td>
+          <td><span class="org-tag ${item.org.toLowerCase()}">${item.org}</span></td>
+          <td>${item.basis}</td>
+          <td><a href="#" class="file-chip" onclick="openDetail(${idx}, 'overview')">📎 ${item.file}</a></td>
+          <td>
+            <select class="status-select" onchange="updateStatus(${idx}, 'overview', this.value)">
+              <option value="pending" ${item.status === 'pending' ? 'selected' : ''}>⏳ Verifikasi</option>
+              <option value="verified" ${item.status === 'verified' ? 'selected' : ''}>🔄 Diproses</option>
+              <option value="done" ${item.status === 'done' ? 'selected' : ''}>✅ Selesai</option>
+            </select>
+          </td>
+          <td><button onclick="openDetail(${idx}, 'overview')" style="background:rgba(34,211,238,0.1); color:var(--tosca-glow); border:1px solid rgba(34,211,238,0.3); padding:5px 10px; border-radius:6px; cursor:pointer; font-weight:700;">Detail</button></td>
+        </tr>
+      `).join('');
+    } 
+    else if(currentActiveTab === 'ipnu-kader' || currentActiveTab === 'ippnu-kader') {
+      const dataKey = currentActiveTab === 'ipnu-kader' ? 'ipnuKader' : 'ippnuKader';
+      tableHeader.innerHTML = `<th>ID Anggota</th><th>Nama Lengkap</th><th>Jenjang</th><th>Basis</th><th>Arsip Dokumen</th><th>Status Keanggotaan</th>`;
+      tableBody.innerHTML = mockDatabase[dataKey].map((item, idx) => `
+        <tr>
+          <td><b>${item.id}</b></td>
+          <td>${item.nama}</td>
+          <td>${item.jenjang}</td>
+          <td>${item.basis}</td>
+          <td><a href="#" class="file-chip" onclick="alert('Membuka file: ${item.file}')">📎 ${item.file}</a></td>
+          <td><span class="status-badge done">🟢 Aktif</span></td>
+        </tr>
+      `).join('');
+    }
+    else if(currentActiveTab === 'ipnu-surat' || currentActiveTab === 'ippnu-surat') {
+      const dataKey = currentActiveTab === 'ipnu-surat' ? 'ipnuSurat' : 'ippnuSurat';
+      const isIPPNU = currentActiveTab === 'ippnu-surat';
+      tableHeader.innerHTML = `<th>No. Berkas</th><th>Perihal / Agenda</th><th>Pemohon</th><th>File Lampiran</th><th>Ubah Status Proses</th><th>Aksi</th>`;
+      tableBody.innerHTML = mockDatabase[dataKey].map((item, idx) => `
+        <tr>
+          <td><b>${item.no}</b></td>
+          <td>${item.perihal}</td>
+          <td>${item.pemohon}</td>
+          <td><a href="#" class="file-chip" onclick="alert('Membuka file: ${item.file}')">📎 ${item.file}</a></td>
+          <td>
+            <select class="status-select" onchange="updateStatus(${idx}, '${dataKey}', this.value)">
+              <option value="pending" ${item.status === 'pending' ? 'selected' : ''}>⏳ Verifikasi</option>
+              <option value="verified" ${item.status === 'verified' ? 'selected' : ''}>🔄 Diproses</option>
+              <option value="done" ${item.status === 'done' ? 'selected' : ''}>✅ Selesai</option>
+            </select>
+          </td>
+          <td><button onclick="openDetail(${idx}, '${dataKey}')" style="background:${isIPPNU ? 'rgba(236,72,153,0.15)' : 'rgba(34,211,238,0.1)'}; color:${isIPPNU ? 'var(--pink-ippnu)' : 'var(--tosca-glow)'}; border:1px solid ${isIPPNU ? 'rgba(236,72,153,0.3)' : 'rgba(34,211,238,0.3)'}; padding:5px 10px; border-radius:6px; cursor:pointer; font-weight:700;">Detail</button></td>
+        </tr>
+      `).join('');
+    }
+  }
+
+  function openDetail(index, category) {
+    const data = mockDatabase[category][index];
+    const modal = document.getElementById('modalDetailData');
+    const body = document.getElementById('detailContentBody');
+
+    body.innerHTML = `
+      <p><strong>Nomor / Resi:</strong> ${data.resi || data.no || data.id}</p>
+      <p><strong>Nama / Pemohon:</strong> ${data.nama || data.pemohon}</p>
+      <p><strong>Jenis Layanan / Perihal:</strong> ${data.jenis || data.perihal || data.jenjang}</p>
+      <p><strong>Organisasi / Basis:</strong> ${data.basis || '-'}</p>
+      <p><strong>Status Saat Ini:</strong> <span style="text-transform:uppercase; font-weight:800; color:var(--tosca-glow);">${data.status}</span></p>
+      <p><strong>Kontak WhatsApp:</strong> <a href="https://wa.me/${data.telp || '628123456789'}" target="_blank" style="color:var(--tosca-glow);">📱 Chat WhatsApp (${data.telp || 'Tersedia'})</a></p>
+      <p><strong>File Lampiran Utama:</strong> <span class="file-chip" style="margin-top:4px;">📎 ${data.file}</span></p>
+    `;
+    modal.style.display = 'flex';
+  }
+
+  function closeModalDetail() {
+    document.getElementById('modalDetailData').style.display = 'none';
+  }
+
+  function openModalAdd() {
+    const modal = document.getElementById('modalAddData');
+    const fieldsContainer = document.getElementById('modalFormFields');
+    document.getElementById('modalTitle').innerText = `Tambah Arsip (${currentActiveTab.includes('kader') ? 'Kader' : 'Surat'})`;
+
+    if(currentActiveTab.includes('kader')) {
+      fieldsContainer.innerHTML = `
+        <div><label>Nama Lengkap</label><input id="inp1" required placeholder="Nama lengkap kader..."></div>
+        <div><label>Jenjang Pengkaderan</label><select id="inp2"><option>MAKESTA</option><option>LAKMUD</option><option>LATPEL</option></select></div>
+        <div><label>Pimpinan / Basis</label><input id="inp3" required placeholder="Contoh: PAC Sukorejo"></div>
+        <div><label>Unggah Berkas Ijazah / Sertifikat (PDF/JPG)</label><input type="file" required style="padding:8px; background:#080E13;"></div>
+      `;
+    } else {
+      fieldsContainer.innerHTML = `
+        <div><label>Perihal Surat / Agenda</label><input id="inp1" required placeholder="Contoh: Permohonan SK Baru"></div>
+        <div><label>Nama Pemohon / Ketua</label><input id="inp2" required placeholder="Nama pemohon..."></div>
+        <div><label>Nomor WhatsApp Aktif</label><input id="inp3" type="tel" required placeholder="081234567890"></div>
+        <div><label>Unggah Proposal / Rekomendasi (PDF)</label><input type="file" required style="padding:8px; background:#080E13;"></div>
+      `;
+    }
+    modal.style.display = 'flex';
+  }
+
+  function closeModalAdd() {
+    document.getElementById('modalAddData').style.display = 'none';
+  }
+
+  function handleSaveModal(e) {
+    e.preventDefault();
+    const v1 = document.getElementById('inp1').value;
+    const v2 = document.getElementById('inp2').value;
+    const v3 = document.getElementById('inp3').value;
+
+    if(currentActiveTab === 'ipnu-kader') {
+      mockDatabase.ipnuKader.unshift({ id: `KAD-IPNU-00${mockDatabase.ipnuKader.length + 1}`, nama: v1, jenjang: v2, basis: v3, thn: '2026', status: 'Aktif', file: 'Arsip_Baru_Kader.pdf' });
+    } else if(currentActiveTab === 'ippnu-kader') {
+      mockDatabase.ippnuKader.unshift({ id: `KAD-IPPNU-00${mockDatabase.ippnuKader.length + 1}`, nama: v1, jenjang: v2, basis: v3, thn: '2026', status: 'Aktif', file: 'Arsip_Baru_Kader.pdf' });
+    } else if(currentActiveTab === 'ipnu-surat') {
+      mockDatabase.ipnuSurat.unshift({ no: `SK-IPNU-0${mockDatabase.ipnuSurat.length + 1}`, perihal: v1, pemohon: v2, tgl: '11 Jun 2026', status: 'pending', file: 'Dokumen_Pengajuan_Baru.pdf', telp: v3 });
+    } else if(currentActiveTab === 'ippnu-surat') {
+      mockDatabase.ippnuSurat.unshift({ no: `SK-IPPNU-0${mockDatabase.ippnuSurat.length + 1}`, perihal: v1, pemohon: v2, tgl: '11 Jun 2026', status: 'pending', file: 'Dokumen_Pengajuan_Baru.pdf', telp: v3 });
+    }
+
+    localStorage.setItem('pc_admin_db', JSON.stringify(mockDatabase));
+    closeModalAdd();
+    renderTableData();
+    alert('✅ Data baru beserta berkas lampiran berhasil diarsipkan!');
+  }
+
+  function filterTable() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const rows = document.querySelectorAll('#dashTableBody tr');
+    rows.forEach(row => {
+      row.style.display = row.innerText.toLowerCase().includes(query) ? '' : 'none';
+    });
+  }
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

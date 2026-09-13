@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PC IPNU-IPPNU Kota Blitar — Portal Beranda</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Palet Tosca Bergradasi & Dinamis */
+    --tosca-950: #021920; /* Sangat Gelap (Deep Space Base) */
+    --tosca-900: #042A33; /* Tosca Gelap Utama */
+    --tosca-800: #084351; /* Tosca Medium-Dark */
+    --tosca-700: #0E6073; /* Tosca Aksen */
+    --tosca-glow: #22D3EE; /* Cyan Terang Bercahaya (Glow & Highlight) */
+    --tosca-soft: #0E3B46; 
+    
+    --ink: #0f172a;
+    --white: #FFFFFF;
+    --paper: #F8FAFC;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background-color: var(--white);
+    overflow-x: hidden;
+  }
+
+  .wrap {
+    max-width: 1150px;
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* ================= NAVIGASI UTAMA ================= */
+  nav.site-nav {
+    background: linear-gradient(180deg, var(--tosca-950) 0%, var(--tosca-900) 100%) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    width: 100% !important;
+    box-shadow: 0 4px 25px rgba(2, 25, 32, 0.5);
+    border-bottom: 1px solid rgba(34, 211, 238, 0.2);
+  }
+  .nav-inner {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 12px 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  .brand {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    text-decoration: none !important;
+  }
+  .brand-mark {
+    width: 42px !important; 
+    height: 42px !important;
+    background: linear-gradient(135deg, var(--tosca-glow), #06B6D4) !important;
+    color: var(--tosca-950) !important;
+    font-weight: 800 !important;
+    border-radius: 10px !important;
+    display: flex !important; 
+    align-items: center !important; 
+    justify-content: center !important;
+    font-size: 17px !important;
+    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+    flex-shrink: 0;
+  }
+  .brand-text .t1 { font-size: 13.5px !important; font-weight: 800 !important; color: #FFFFFF !important; line-height: 1.2 !important; }
+  .brand-text .t2 { font-size: 11px !important; color: var(--tosca-glow) !important; font-weight: 600 !important; letter-spacing: 0.5px; }
+
+  ul.nav-links {
+    display: flex !important;
+    gap: 16px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-items: center !important;
+  }
+  ul.nav-links li a {
+    color: rgba(255,255,255,0.85) !important;
+    text-decoration: none !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s;
+    padding: 6px 10px;
+    border-radius: 6px;
+  }
+  ul.nav-links li a:hover, ul.nav-links li a.active {
+    color: var(--tosca-glow) !important;
+    background: rgba(34, 211, 238, 0.1);
+  }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--tosca-glow), #06B6D4) !important;
+    color: var(--tosca-950) !important;
+    padding: 9px 16px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+  }
+  .nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(34, 211, 238, 0.5);
+  }
+
+  button#navToggle {
+    display: none !important;
+    background: transparent !important;
+    border: 2px solid var(--tosca-glow) !important;
+    color: var(--tosca-glow) !important;
+    font-size: 22px !important;
+    cursor: pointer !important;
+    padding: 4px 10px !important;
+    border-radius: 8px !important;
+    line-height: 1 !important;
+  }
+
+  /* HERO SECTION DENGAN GRADASI & ORNAMEN GRID MENDALAM */
+  .hero {
+    background-color: var(--tosca-900);
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(14, 96, 115, 0.6) 0%, transparent 70%),
+      linear-gradient(180deg, var(--tosca-950) 0%, var(--tosca-900) 50%, var(--tosca-800) 100%),
+      linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    background-position: center top;
+    
+    color: #FFFFFF;
+    padding: 90px 0 80px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid var(--tosca-glow);
+  }
+  .hero-twin-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-text-center {
+    flex: 1;
+    text-align: center;
+  }
+  .gapura-svg {
+    width: 140px;
+    height: auto;
+    flex-shrink: 0;
+    filter: drop-shadow(0 10px 25px rgba(2, 25, 32, 0.6));
+    opacity: 0.95;
+    transition: transform 0.3s ease;
+  }
+  .gapura-svg:hover { transform: scale(1.03); }
+  .gapura-svg.flip { transform: scaleX(-1); }
+  .gapura-svg.flip:hover { transform: scaleX(-1) scale(1.03); }
+
+  .eyebrow-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(34, 211, 238, 0.12);
+    color: var(--tosca-glow);
+    padding: 7px 18px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 22px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 1px solid rgba(34, 211, 238, 0.3);
+  }
+
+  .hero-text-center h1 {
+    font-size: clamp(32px, 4.5vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 18px 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.5px;
+  }
+  .hero-text-center h1 span { 
+    color: var(--tosca-glow); 
+    text-shadow: 0 0 25px rgba(34, 211, 238, 0.4);
+  }
+  .hero-text-center .lead {
+    font-size: clamp(14px, 1.5vw, 16.5px);
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 650px;
+    margin: 0 auto 30px auto;
+    line-height: 1.7;
+    text-align: center;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 12px 26px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+  .btn-accent { 
+    background: linear-gradient(135deg, var(--tosca-glow), #06B6D4); 
+    color: var(--tosca-950); 
+    box-shadow: 0 8px 25px rgba(34, 211, 238, 0.35);
+  }
+  .btn-accent:hover { 
+    background: linear-gradient(135deg, #67e8f9, var(--tosca-glow)); 
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(34, 211, 238, 0.5);
+  }
+  .btn-outline { 
+    background: rgba(14, 96, 115, 0.4); 
+    color: #FFFFFF; 
+    border: 1px solid rgba(34, 211, 238, 0.4); 
+    backdrop-filter: blur(8px);
+  }
+  .btn-outline:hover { 
+    background: rgba(14, 96, 115, 0.8); 
+    border-color: var(--tosca-glow);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+
+  /* STATISTIK BAND */
+  .stats-band {
+    background: linear-gradient(180deg, var(--tosca-900) 0%, var(--tosca-950) 100%);
+    border-bottom: 4px solid var(--tosca-glow);
+    padding: 45px 0;
+    color: #FFFFFF;
+    box-shadow: inset 0 10px 25px rgba(2, 25, 32, 0.4);
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+  .stat-card-item {
+    background: rgba(14, 96, 115, 0.15);
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    padding: 22px;
+    border-radius: 14px;
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  }
+  .stat-card-item:hover {
+    transform: translateY(-4px);
+    background: rgba(14, 96, 115, 0.3);
+    border-color: var(--tosca-glow);
+    box-shadow: 0 8px 20px rgba(34, 211, 238, 0.15);
+  }
+  .stat-num { 
+    font-size: 38px; 
+    font-weight: 800; 
+    color: var(--tosca-glow); 
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-shadow: 0 2px 10px rgba(34, 211, 238, 0.3);
+  }
+  .stat-label { 
+    font-size: 12px; 
+    color: rgba(255, 255, 255, 0.9); 
+    font-weight: 700; 
+    margin-top: 8px; 
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  /* SECTION UMUM */
+  .section { padding: 75px 0; }
+  
+  .section.bg-white {
+    background: var(--white);
+    color: var(--ink);
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .section.bg-blue {
+    background: var(--paper);
+    color: var(--ink);
+    border-bottom: 1px solid #cbd5e1;
+  }
+
+  .section-head { margin-bottom: 45px; }
+  .section-head.flex-head { display: flex; align-items: flex-end; justify-content: space-between; }
+  .section-eyebrow { font-size: 11.5px; font-weight: 800; color: var(--tosca-700); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1.2px; }
+  .section-head h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; color: var(--tosca-900); margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .link-more { color: var(--tosca-700); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; font-size: 14px; }
+  .link-more:hover { gap: 10px; color: var(--tosca-950); }
+
+  /* STRUKTUR ORGANISASI */
+  .struktur-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .struktur-col { background: #FFFFFF; border-radius: 20px; padding: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; }
+  
+  .struktur-col.ipnu { border-top: 4px solid var(--tosca-800); }
+  .struktur-col.ippnu { border-top: 4px solid var(--tosca-700); }
+
+  .struktur-col-head { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid #e2e8f0; }
+  
+  .people-grid { display: flex; flex-direction: column; gap: 16px; }
+  
+  .person-card { 
+    background: #f8fafc; 
+    border: 1px solid #e2e8f0;
+    border-radius: 14px; 
+    padding: 16px 20px; 
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .person-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  }
+
+  .person-card .avatar { 
+    width: 72px; 
+    height: 72px; 
+    border-radius: 12px; 
+    background: #e0f2fe; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 11px; 
+    font-weight: 700; 
+    color: var(--tosca-700); 
+    overflow: hidden; 
+    flex-shrink: 0;
+  }
+  .struktur-col.ipnu .person-card .avatar { border: 2px solid var(--tosca-800); }
+  .struktur-col.ippnu .person-card .avatar { border: 2px solid var(--tosca-700); }
+
+  .person-card .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .person-info { display: flex; flex-direction: column; justify-content: center; }
+  .person-name { font-size: 15px; font-weight: 800; color: var(--tosca-900); line-height: 1.3; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .person-role { font-size: 12.5px; font-weight: 700; color: var(--tosca-700); margin-top: 4px; }
+
+  /* KARTU BERITA */
+  .card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .news-card-pro { 
+    background: #FFFFFF; 
+    border: 1px solid #e2e8f0; 
+    border-radius: 18px; 
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.04); 
+    height: 100%; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .news-card-pro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+  .news-thumb-pro { position: relative; height: 210px; background: var(--tosca-900); overflow: hidden; }
+  .news-thumb-pro img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .news-card-pro:hover .news-thumb-pro img { transform: scale(1.06); }
+  .news-tag-pro { position: absolute; top: 14px; left: 14px; background: var(--tosca-950); color: var(--tosca-glow); padding: 5px 12px; border-radius: 8px; font-size: 11px; font-weight: 800; z-index: 2; box-shadow: 0 3px 10px rgba(0,0,0,0.2); border: 1px solid rgba(34, 211, 238, 0.3); }
+  .news-body-pro { padding: 22px; display: flex; flex-direction: column; flex: 1; }
+  .news-title-pro { font-size: 15.5px; font-weight: 800; color: #0f172a; margin-bottom: 10px; line-height: 1.4; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .news-meta-pro { font-size: 11.5px; color: #64748B; margin-bottom: 12px; font-weight: 600; }
+  .news-excerpt-pro { font-size: 13.5px; color: #334155; line-height: 1.6; margin-bottom: 20px; flex: 1; }
+  .news-action-link { font-size: 13.5px; font-weight: 700; color: var(--tosca-700); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin-top: auto; transition: gap 0.2s; }
+  .news-action-link:hover { gap: 10px; color: var(--tosca-950); }
+
+  /* AGENDA & DOKUMEN */
+  .agenda-date-badge { width: 52px; padding: 8px 0; background: #e0f2fe; border: 1px solid rgba(34, 211, 238, 0.3); border-radius: 12px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 10px rgba(14, 96, 115, 0.1); }
+  .agenda-date-badge .d { font-size: 17px; font-weight: 800; color: var(--tosca-900); line-height: 1.1; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .agenda-date-badge .m { font-size: 9.5px; font-weight: 800; color: var(--tosca-700); text-transform: uppercase; margin-top: 2px; }
+
+  /* PORTAL AKSES CEPAT */
+  .quick-card-pro { 
+    position: relative; 
+    background: #FFFFFF; 
+    border: 1px solid #e2e8f0; 
+    border-radius: 18px; 
+    padding: 30px 24px; 
+    text-decoration: none; 
+    color: #0f172a; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.04); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .quick-card-pro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+  .quick-card-pro.featured { background: linear-gradient(135deg, var(--tosca-800), var(--tosca-950)); color: var(--white) !important; border: 1px solid rgba(34, 211, 238, 0.3); }
+  .quick-card-pro.featured p { color: rgba(255,255,255,0.9) !important; }
+  .quick-card-pro.featured h3 { color: #FFFFFF !important; }
+  .quick-icon-pro { width: 52px; height: 52px; border-radius: 14px; background: #e0f2fe; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 18px; color: var(--tosca-700); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .quick-card-pro.featured .quick-icon-pro { background: rgba(34, 211, 238, 0.2); color: var(--tosca-glow); }
+  .quick-card-pro h3 { font-size: 18px; font-weight: 800; margin-bottom: 10px; font-family: 'Plus Jakarta Sans', sans-serif; color: #0f172a; }
+  .quick-card-pro p { font-size: 13.5px; color: #334155; line-height: 1.6; margin: 0; }
+  .quick-card-arrow { margin-top: 22px; font-size: 13.5px; font-weight: 700; color: var(--tosca-700); display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+  .quick-card-arrow:hover { gap: 10px; }
+  .quick-card-pro.featured .quick-card-arrow { color: var(--tosca-glow); }
+
+  /* QUOTE SLOGAN */
+  .quote-band-epic { background: linear-gradient(135deg, var(--tosca-950), var(--tosca-900)); color: #fff; padding: 100px 20px; text-align: center; position: relative; overflow: hidden; border-top: 4px solid var(--tosca-glow); border-bottom: 4px solid var(--tosca-glow); box-shadow: inset 0 0 40px rgba(2, 25, 32, 0.6); }
+  .quote-band-epic h2 { font-size: clamp(28px, 4.5vw, 48px); font-weight: 800; text-transform: uppercase; margin-bottom: 18px; color: var(--tosca-glow); font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: 1px; text-shadow: 0 2px 15px rgba(34, 211, 238, 0.4); }
+  .quote-band-epic p { font-size: clamp(14px, 1.8vw, 17px); color: rgba(255,255,255,0.95); max-width: 750px; margin: 0 auto; line-height: 1.7; }
+  .quote-band-epic .accent-line { width: 60px; height: 4px; background: var(--tosca-glow); margin: 28px auto 0; border-radius: 4px; box-shadow: 0 0 15px var(--tosca-glow); }
+
+  /* FOOTER STYLING CUSTOM */
+  .footer-custom {
+    background-color: var(--tosca-950);
+    color: #94a3b8;
+    padding: 65px 20px 30px;
+    font-family: 'Inter', sans-serif;
+    border-top: 4px solid var(--tosca-700);
+  }
+  .fc-top-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1.1fr 1fr;
+    gap: 45px;
+    margin-bottom: 45px;
+  }
+  .fc-brand-box h3 {
+    font-size: 21px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 6px 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .fc-brand-box .subtitle {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--tosca-glow);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .fc-brand-box p {
+    font-size: 13.5px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .fc-heading {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .fc-heading::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 16px;
+    background: var(--tosca-glow);
+    border-radius: 2px;
+  }
+  .fc-soc-list {
+    display: flex;
+    gap: 10px;
+  }
+  .fc-soc-list a {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+  .fc-soc-list a:hover {
+    background: var(--tosca-glow);
+    color: var(--tosca-950);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(34, 211, 238, 0.3);
+  }
+  .fc-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .fc-contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: #cbd5e1;
+  }
+  .fc-contact-list li svg {
+    color: var(--tosca-glow);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .fc-divider-line {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .fc-legal-links {
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+  }
+  .fc-legal-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .fc-legal-links a:hover {
+    color: var(--tosca-glow);
+  }
+  .fc-copyright {
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 0;
+  }
+
+  @media (max-width: 960px) {
+    button#navToggle {
+      display: block !important;
+    }
+    .nav-cta {
+      display: none !important;
+    }
+    ul.nav-links {
+      display: none !important;
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      width: 100% !important;
+      background: var(--tosca-950) !important;
+      flex-direction: column !important;
+      padding: 20px 0 !important;
+      gap: 14px !important;
+      text-align: center !important;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5) !important;
+      border-top: 1px solid rgba(255,255,255,0.15) !important;
+      z-index: 9999 !important;
+    }
+    ul.nav-links.show {
+      display: flex !important;
+    }
+    ul.nav-links li {
+      width: 100% !important;
+    }
+    ul.nav-links li a {
+      font-size: 15px !important;
+      padding: 10px 0 !important;
+      display: block !important;
+    }
+
+    .hero-twin-wrap { flex-direction: column; padding: 20px 0; gap: 20px; }
+    .gapura-svg { display: none; }
+    .hero-text-center h1 { font-size: 26px !important; }
+    .hero-text-center .lead { font-size: 13.5px !important; text-align: center !important; }
+
+    .stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 16px; }
+    .struktur-grid { grid-template-columns: 1fr !important; gap: 20px; }
+    .card-grid-3 { grid-template-columns: 1fr !important; gap: 20px; }
+    
+    .section-head.flex-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+    
+    .fc-top-grid { grid-template-columns: 1fr; gap: 30px; }
+    .fc-divider-line { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">PC</div>
+      <div class="brand-text">
+        <div class="t1">PC IPNU-IPPNU</div>
+        <div class="t2">Kota Blitar</div>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="organisasi.html">Organisasi</a></li>
+      <li><a href="kegiatan.html">Kegiatan</a></li>
+      <li><a href="berita.html">Berita</a></li>
+      <li><a href="kaderisasi.html">Kaderisasi</a></li>
+      <li><a href="layanan.html">Layanan</a></li>
+      <li><a href="dokumen.html">Dokumen</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+    <a href="dashboard.html" class="nav-cta">Masuk Admin</a>
+    <button id="navToggle" aria-label="Toggle Menu">☰</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-twin-wrap">
+      <!-- Gapura Kiri -->
+      <svg class="gapura-svg" viewBox="0 0 160 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="110" y="30" width="50" height="14" rx="2" fill="#FFFFFF"/>
+        <rect x="90" y="52" width="70" height="16" rx="2" fill="#FFFFFF"/>
+        <rect x="70" y="76" width="90" height="18" rx="2" fill="#FFFFFF"/>
+        <rect x="50" y="102" width="110" height="20" rx="2" fill="#FFFFFF"/>
+        <rect x="30" y="130" width="130" height="24" rx="2" fill="#FFFFFF"/>
+        <rect x="10" y="162" width="150" height="130" rx="6" fill="#0E6073"/>
+        <rect x="10" y="162" width="16" height="130" rx="2" fill="#FFFFFF" opacity="0.25"/>
+        <rect x="144" y="162" width="16" height="130" rx="2" fill="#FFFFFF" opacity="0.25"/>
+      </svg>
+      <!-- Konten Teks -->
+      <div class="hero-text-center">
+        <div class="eyebrow-pill">SELAMAT DATANG DI PORTAL RESMI</div>
+        <h1>PC IPNU - IPPNU <br><span>KOTA BLITAR</span></h1>
+        <p class="lead"><strong>IPNU (Ikatan Pelajar Nahdlatul Ulama)</strong> dan <strong>IPPNU (Ikatan Pelajar Putri Nahdlatul Ulama)</strong> adalah badan otonom Nahdlatul Ulama yang menjadi wadah berhimpun, pembinaan, dan kaderisasi bagi pelajar, santri, serta remaja putri islam guna menegakkan ajaran Islam Ahlussunnah wal Jamaah di Kota Blitar.</p>
+        <div class="hero-actions">
+          <a href="layanan.html" class="btn btn-accent">Ajukan Layanan Online</a>
+          <a href="dashboard.html" class="btn btn-outline">Portal Dashboard Admin</a>
+        </div>
+      </div>
+      <!-- Gapura Kanan -->
+      <svg class="gapura-svg flip" viewBox="0 0 160 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="110" y="30" width="50" height="14" rx="2" fill="#FFFFFF"/>
+        <rect x="90" y="52" width="70" height="16" rx="2" fill="#FFFFFF"/>
+        <rect x="70" y="76" width="90" height="18" rx="2" fill="#FFFFFF"/>
+        <rect x="50" y="102" width="110" height="20" rx="2" fill="#FFFFFF"/>
+        <rect x="30" y="130" width="130" height="24" rx="2" fill="#FFFFFF"/>
+        <rect x="10" y="162" width="150" height="130" rx="6" fill="#0E6073"/>
+        <rect x="10" y="162" width="16" height="130" rx="2" fill="#FFFFFF" opacity="0.25"/>
+        <rect x="144" y="162" width="16" height="130" rx="2" fill="#FFFFFF" opacity="0.25"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- Statistik Band -->
+<section class="stats-band">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-card-item">
+        <div class="stat-num" data-target="3">0</div>
+        <div class="stat-label">Pimpinan Anak Cabang</div>
+      </div>
+      <div class="stat-card-item">
+        <div class="stat-num" data-target="22">0</div>
+        <div class="stat-label">Pimpinan Ranting</div>
+      </div>
+      <div class="stat-card-item">
+        <div class="stat-num" data-target="7">0</div>
+        <div class="stat-label">Pimpinan Komisariat</div>
+      </div>
+      <div class="stat-card-item">
+        <div class="stat-num" data-target="100" data-suffix="+">0</div>
+        <div class="stat-label">Kader Aktif</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Struktur Organisasi -->
+<section class="section bg-white">
+  <div class="wrap">
+    <div class="section-head flex-head">
+      <div>
+        <div class="section-eyebrow">Kepengurusan</div>
+        <h2>Struktur Organisasi</h2>
+      </div>
+      <a href="organisasi.html" class="link-more">Lihat Selengkapnya →</a>
+    </div>
+    <div class="struktur-grid">
+      
+      <div class="struktur-col ipnu">
+        <div class="struktur-col-head">
+          <span style="background:var(--tosca-800);color:#fff;padding:5px 12px;border-radius:6px;font-size:11.5px;font-weight:800;">IPNU</span>
+          <div><strong style="font-size: 14.5px; color: var(--tosca-900); font-family:'Plus Jakarta Sans',sans-serif;">PC IPNU Kota Blitar</strong></div>
+        </div>
+        <div class="people-grid">
+          <div class="person-card">
+            <div class="avatar"><img src="../assets/images/ketuaipnu.png" alt="Ketua IPNU"></div>
+            <div class="person-info">
+              <div class="person-name">Achmad Hafy Akmal M.</div>
+              <div class="person-role">Ketua</div>
+            </div>
+          </div>
+          <div class="person-card">
+            <div class="avatar">Foto</div>
+            <div class="person-info">
+              <div class="person-name">M. Risko Saputra</div>
+              <div class="person-role">Sekretaris</div>
+            </div>
+          </div>
+          <div class="person-card">
+            <div class="avatar">Foto</div>
+            <div class="person-info">
+              <div class="person-name">M. Ardiansyah Athalla</div>
+              <div class="person-role">Bendahara</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="struktur-col ippnu">
+        <div class="struktur-col-head">
+          <span style="background:var(--tosca-700);color:#fff;padding:5px 12px;border-radius:6px;font-size:11.5px;font-weight:800;">IPPNU</span>
+          <div><strong style="font-size: 14.5px; color: var(--tosca-900); font-family:'Plus Jakarta Sans',sans-serif;">PC IPPNU Kota Blitar</strong></div>
+        </div>
+        <div class="people-grid">
+          <div class="person-card">
+            <div class="avatar"><img src="../assets/images/ketuaippnu.png" alt="Ketua IPPNU"></div>
+            <div class="person-info">
+              <div class="person-name">Sofia Annas Ashari</div>
+              <div class="person-role">Ketua</div>
+            </div>
+          </div>
+          <div class="person-card">
+            <div class="avatar">Foto</div>
+            <div class="person-info">
+              <div class="person-name">Amilil 'Ulya</div>
+              <div class="person-role">Sekretaris</div>
+            </div>
+          </div>
+          <div class="person-card">
+            <div class="avatar">Foto</div>
+            <div class="person-info">
+              <div class="person-name">Deta Reztifa Putri</div>
+              <div class="person-role">Bendahara</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Berita Terbaru -->
+<section class="section bg-blue">
+  <div class="wrap">
+    <div class="section-head flex-head">
+      <div>
+        <div class="section-eyebrow">Warta &amp; Informasi</div>
+        <h2>Berita Terbaru</h2>
+      </div>
+      <a href="berita.html" class="link-more">Semua Berita →</a>
+    </div>
+    
+    <div class="card-grid-3">
+      <article class="news-card-pro">
+        <div class="news-thumb-pro">
+          <span class="news-tag-pro">Kaderisasi</span>
+          <img src="../assets/images/audiensiatmi.jpeg" alt="MAKESTA">
+        </div>
+        <div class="news-body-pro">
+          <h3 class="news-title-pro">Gebrak Pengkaderan Sekolah, PC IPNU-IPPNU Kota Blitar Siapkan MAKESTA &amp; Reaktivasi PK SMK Islam 1 Blitar</h3>
+          <div class="news-meta-pro">28 Agustus 2026 · Tim Media</div>
+          <p class="news-excerpt-pro">Langkah taktis perkuat basis pelajar: matangkan persiapan MAKESTA dan reaktivasi komisariat...</p>
+          <a href="berita.html?id=berita1" class="news-action-link">Baca Selengkapnya →</a>
+        </div>
+      </article>
+
+      <article class="news-card-pro">
+        <div class="news-thumb-pro">
+          <span class="news-tag-pro">Konsolidasi</span>
+          <img src="../assets/images/rapimrakor.jpeg" alt="RAPIMCAB">
+        </div>
+        <div class="news-body-pro">
+          <h3 class="news-title-pro">Konsolidasi Tanpa Batas! RAPIMCAB &amp; RAKORCAB Satukan Visi Perjuangan Pelajar Nahdliyin Blitar</h3>
+          <div class="news-meta-pro">20 Februari 2026 · Tim Media</div>
+          <p class="news-excerpt-pro">Forum strategis satukan langkah pengurus harian dan PAC demi optimalisasi program kerja...</p>
+          <a href="berita.html?id=beritaRapimcab" class="news-action-link">Baca Selengkapnya →</a>
+        </div>
+      </article>
+
+      <article class="news-card-pro">
+        <div class="news-thumb-pro">
+          <span class="news-tag-pro">Pendidikan</span>
+          <img src="../assets/images/mplsstmi.jpeg" alt="MPLS STMI">
+        </div>
+        <div class="news-body-pro">
+          <h3 class="news-title-pro">Tanamkan Nilai Moderasi Sejak Dini, PC IPNU-IPPNU Bekali Ratusan Siswa Baru STMI</h3>
+          <div class="news-meta-pro">Juli 2026 · Tim Media</div>
+          <p class="news-excerpt-pro">Hadir di MPLS STMI Kota Blitar, kader IPNU-IPPNU sukses inspirasi siswa lewat materi Aswaja...</p>
+          <a href="berita.html?id=beritaMplsStmi" class="news-action-link">Baca Selengkapnya →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Agenda & Dokumen -->
+<section class="section bg-white">
+  <div class="wrap" style="display: flex; flex-direction: column; gap: 40px;">
+    
+    <div>
+      <div class="section-head flex-head" style="margin-bottom: 20px;">
+        <div>
+          <div class="section-eyebrow">Jadwal Acara</div>
+          <h2 style="font-size: 24px;">Agenda Mendatang</h2>
+        </div>
+        <a href="kegiatan.html" class="link-more">Lihat Semua →</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div style="padding: 18px; display: flex; align-items: center; gap: 16px; background:#f8fafc; border-radius:14px; border:1px solid #cbd5e1; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+          <div class="agenda-date-badge">
+            <div class="d">11</div>
+            <div class="m">SEP</div>
+          </div>
+          <div>
+            <div style="font-weight:800;font-size:14px;color:var(--ink); font-family:'Plus Jakarta Sans',sans-serif;">MAKESTA &amp; Reaktivasi PK SMK Islam 1</div>
+            <div style="font-size:12px;color:#475569;margin-top:3px; font-weight:600;">Kompleks SMK Islam 1 Blitar</div>
+          </div>
+        </div>
+
+        <div style="padding: 18px; display: flex; align-items: center; gap: 16px; background:#f8fafc; border-radius:14px; border:1px solid #cbd5e1; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+          <div class="agenda-date-badge">
+            <div class="d">28</div>
+            <div class="m">AUG</div>
+          </div>
+          <div>
+            <div style="font-weight:800;font-size:14px;color:var(--ink); font-family:'Plus Jakarta Sans',sans-serif;">Rapat Koordinasi Pengkaderan</div>
+            <div style="font-size:12px;color:#475569;margin-top:3px; font-weight:600;">Kantor PCNU Kota Blitar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div>
+      <div class="section-head flex-head" style="margin-bottom: 20px;">
+        <div>
+          <div class="section-eyebrow">Berkas Resmi</div>
+          <h2 style="font-size: 24px;">Pusat Dokumen</h2>
+        </div>
+        <a href="dokumen.html" class="link-more">Lihat Semua Dokumen →</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div style="padding: 18px; display: flex; align-items: center; justify-content: space-between; background:#f8fafc; border-radius:14px; border:1px solid #cbd5e1; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+          <div>
+            <div style="font-size:14px; font-weight: 800; color:var(--ink); font-family:'Plus Jakarta Sans',sans-serif;">Template SK Kepengurusan</div>
+            <div style="font-size:11.5px; color: #475569; margin-top: 2px; font-weight: 600;">Format SK Resmi</div>
+          </div>
+          <a href="dokumen.html" style="background:var(--tosca-700); padding:8px 16px; border-radius:8px; font-size:12px; font-weight:700; text-decoration:none; color:#fff; transition: background 0.2s;">Unduh</a>
+        </div>
+        <div style="padding: 18px; display: flex; align-items: center; justify-content: space-between; background:#f8fafc; border-radius:14px; border:1px solid #cbd5e1; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+          <div>
+            <div style="font-size:14px; font-weight: 800; color:var(--ink); font-family:'Plus Jakarta Sans',sans-serif;">Template Proposal &amp; LPJ</div>
+            <div style="font-size:11.5px; color: #475569; margin-top: 2px; font-weight: 600;">Format Administrasi</div>
+          </div>
+          <a href="dokumen.html" style="background:var(--tosca-700); padding:8px 16px; border-radius:8px; font-size:12px; font-weight:700; text-decoration:none; color:#fff; transition: background 0.2s;">Unduh</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Portal Akses Cepat -->
+<section class="section bg-blue">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Portal Akses Cepat</div>
+      <h2>Akses Halaman Administrator &amp; Layanan Terpadu</h2>
+      <p style="color: #475569; font-size: 14.5px; margin-top: 8px;">Akses fitur unggulan dan modul utama organisasi secara langsung melalui navigasi practical.</p>
+    </div>
+
+    <div class="card-grid-3">
+      <a class="quick-card-pro featured" href="dashboard.html">
+        <div>
+          <div class="quick-icon-pro">📊</div>
+          <h3>Dashboard Admin</h3>
+          <p>Akses khusus pengurus untuk mengelola pengajuan SK, verifikasi berkas, dan perbarui statistik.</p>
+        </div>
+        <div class="quick-card-arrow">Buka Dashboard Admin →</div>
+      </a>
+      <a class="quick-card-pro" href="layanan.html">
+        <div>
+          <div class="quick-icon-pro">📄</div>
+          <h3>Pengajuan SK &amp; Tracking</h3>
+          <p>Formulir online permohonan SK PAC/PK/PR serta fitur lacak status resi permohonan.</p>
+        </div>
+        <div class="quick-card-arrow">Masuk Portal Layanan →</div>
+      </a>
+      <a class="quick-card-pro" href="kaderisasi.html">
+        <div>
+          <div class="quick-icon-pro">🎓</div>
+          <h3>Kaderisasi Pelajar</h3>
+          <p>Informasi alur jenjang kaderisasi serta permohonan kegiatan MAKESTA, LAKMUD, dan pelatihan.</p>
+        </div>
+        <div class="quick-card-arrow">Lihat Alur Kaderisasi →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="quote-band-epic">
+  <div class="wrap">
+    <h2>"Belajar, Berjuang, Bertakwa."</h2>
+    <p>Mencetak Generasi Pelajar Nahdlatul Ulama Kota Blitar yang Tangguh, Berdaya Saing, Inovatif, dan Berakhlakul Karimah di Era Digital.</p>
+    <div class="accent-line"></div>
+  </div>
+</section>
+
+<!-- FOOTER STYLING CUSTOM -->
+<footer class="footer-custom">
+  <div class="wrap">
+    <div class="fc-top-grid">
+      
+      <!-- Kolom Brand -->
+      <div class="fc-brand-box">
+        <h3>PC IPNU - IPPNU</h3>
+        <span class="subtitle">Kota Blitar</span>
+        <p>Wadah berhimpun, berproses, dan berjuang bersama pelajar Nahdlatul Ulama untuk mewujudkan generasi yang berakhlak, cerdas, serta berdaya saing.</p>
+      </div>
+
+      <!-- Kolom Kontak / Bantuan -->
+      <div>
+        <h4 class="fc-heading">Pusat Layanan</h4>
+        <ul class="fc-contact-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>pc.ipnuippnu.kotablitar@gmail.com</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <span>+62 812-3456-7891 (Admin Sekretariat)</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Kolom Media Sosial -->
+      <div>
+        <h4 class="fc-heading">Ikuti Kami</h4>
+        <div class="fc-soc-list">
+          <a href="#" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor"></polygon></svg>
+          </a>
+          <a href="#" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Garis Pemisah & Hak Cipta -->
+    <div class="fc-divider-line">
+      <p class="fc-copyright">© 2026 PC IPNU-IPPNU Kota Blitar. All Rights Reserved.</p>
+      <div class="fc-legal-links">
+        <a href="dokumen.html">Kebijakan Privasi</a>
+        <span>•</span>
+        <a href="dokumen.html">Syarat &amp; Ketentuan</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        navLinks.classList.toggle("show");
+      });
+
+      navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("show");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove("show");
+        }
+      });
+    }
+
+    const counters = document.querySelectorAll('.stat-num');
+
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      const suffix = counter.getAttribute('data-suffix') || '';
+      let current = 0;
+      
+      const speedDivider = 150; 
+      const increment = Math.max(target / speedDivider, 0.1);
+      
+      const updateCount = () => {
+        current += increment;
+        if (current < target) {
+          counter.innerText = Math.ceil(current) + suffix;
+          setTimeout(updateCount, 30);
+        } else {
+          counter.innerText = target + suffix;
+        }
+      };
+
+      updateCount();
+    });
+  });
+</script>
+</body>
+</html>

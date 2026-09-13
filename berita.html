@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Berita &amp; Warta Resmi — PC IPNU-IPPNU Kota Blitar</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Palet Tosca Bergradasi & Dinamis */
+    --tosca-950: #021920; /* Sangat Gelap (Deep Space Base) */
+    --tosca-900: #042A33; /* Tosca Gelap Utama */
+    --tosca-800: #084351; /* Tosca Medium-Dark */
+    --tosca-700: #0E6073; /* Tosca Aksen */
+    --tosca-glow: #22D3EE; /* Cyan Terang Bercahaya (Glow & Highlight) */
+    --tosca-soft: #0E3B46; 
+    
+    --ink: #0f172a;
+    --white: #FFFFFF;
+    --paper: #F8FAFC;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background-color: var(--white);
+    overflow-x: hidden;
+  }
+
+  .wrap {
+    max-width: 1150px;
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* ================= NAVIGASI UTAMA ================= */
+  nav.site-nav {
+    background: linear-gradient(180deg, var(--tosca-950) 0%, var(--tosca-900) 100%) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    width: 100% !important;
+    box-shadow: 0 4px 25px rgba(2, 25, 32, 0.5);
+    border-bottom: 1px solid rgba(34, 211, 238, 0.2);
+  }
+  .nav-inner {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 12px 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  .brand {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    text-decoration: none !important;
+  }
+  .brand-mark {
+    width: 42px !important; 
+    height: 42px !important;
+    background: linear-gradient(135deg, var(--tosca-glow), #06B6D4) !important;
+    color: var(--tosca-950) !important;
+    font-weight: 800 !important;
+    border-radius: 10px !important;
+    display: flex !important; 
+    align-items: center !important; 
+    justify-content: center !important;
+    font-size: 17px !important;
+    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+    flex-shrink: 0;
+  }
+  .brand-text .t1 { font-size: 13.5px !important; font-weight: 800 !important; color: #FFFFFF !important; line-height: 1.2 !important; }
+  .brand-text .t2 { font-size: 11px !important; color: var(--tosca-glow) !important; font-weight: 600 !important; letter-spacing: 0.5px; }
+
+  ul.nav-links {
+    display: flex !important;
+    gap: 16px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-items: center !important;
+  }
+  ul.nav-links li a {
+    color: rgba(255,255,255,0.85) !important;
+    text-decoration: none !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s;
+    padding: 6px 10px;
+    border-radius: 6px;
+  }
+  ul.nav-links li a:hover, 
+  ul.nav-links li a.active {
+    color: var(--tosca-glow) !important;
+    background: rgba(34, 211, 238, 0.1);
+  }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--tosca-glow), #06B6D4) !important;
+    color: var(--tosca-950) !important;
+    padding: 9px 16px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+  }
+  .nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(34, 211, 238, 0.5);
+  }
+
+  button#navToggle {
+    display: none !important;
+    background: transparent !important;
+    border: 2px solid var(--tosca-glow) !important;
+    color: var(--tosca-glow) !important;
+    font-size: 22px !important;
+    cursor: pointer !important;
+    padding: 4px 10px !important;
+    border-radius: 8px !important;
+    line-height: 1 !important;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    background-color: var(--tosca-900);
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(14, 96, 115, 0.6) 0%, transparent 70%),
+      linear-gradient(180deg, var(--tosca-950) 0%, var(--tosca-900) 50%, var(--tosca-800) 100%),
+      linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    background-position: center top;
+    color: #FFFFFF;
+    padding: 90px 0 80px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid var(--tosca-glow);
+    text-align: center;
+  }
+  .page-header h1 {
+    font-size: clamp(32px, 4.5vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 18px 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.5px;
+  }
+  .page-header h1 span { 
+    color: var(--tosca-glow); 
+    text-shadow: 0 0 25px rgba(34, 211, 238, 0.4);
+  }
+  .page-header p {
+    font-size: clamp(14px, 1.5vw, 16.5px);
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  .eyebrow-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(34, 211, 238, 0.12);
+    color: var(--tosca-glow);
+    padding: 7px 18px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 22px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 1px solid rgba(34, 211, 238, 0.3);
+  }
+
+  /* SECTION UMUM */
+  .section { padding: 75px 0; }
+  .section.bg-white { background: var(--white); color: var(--ink); border-bottom: 1px solid #e2e8f0; }
+
+  .section-head { margin-bottom: 45px; }
+  .section-eyebrow { font-size: 11.5px; font-weight: 800; color: var(--tosca-700); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1.2px; }
+  .section-head h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; color: var(--tosca-900); margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+  /* KARTU BERITA */
+  .card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .news-card-pro { 
+    background: #FFFFFF; 
+    border: 1px solid #e2e8f0; 
+    border-radius: 18px; 
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.04); 
+    height: 100%; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .news-card-pro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-color: var(--tosca-glow);
+  }
+  .news-thumb-pro { position: relative; height: 210px; background: var(--tosca-900); overflow: hidden; }
+  .news-thumb-pro img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .news-card-pro:hover .news-thumb-pro img { transform: scale(1.06); }
+  
+  .news-tag-pro { 
+    position: absolute; 
+    top: 14px; 
+    left: 14px; 
+    background: var(--tosca-950); 
+    color: var(--tosca-glow); 
+    padding: 6px 14px; 
+    border-radius: 50px; 
+    font-size: 11.5px; 
+    font-weight: 800; 
+    z-index: 3; 
+    box-shadow: 0 4px 15px rgba(2, 25, 32, 0.6); 
+    border: 1.5px solid var(--tosca-glow); 
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .news-body-pro { padding: 22px; display: flex; flex-direction: column; flex: 1; }
+  .news-title-pro { font-size: 15.5px; font-weight: 800; color: #0f172a; margin-bottom: 10px; line-height: 1.4; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .news-meta-pro { font-size: 11.5px; color: #64748B; margin-bottom: 12px; font-weight: 600; }
+  .news-excerpt-pro { font-size: 13.5px; color: #334155; line-height: 1.6; margin-bottom: 20px; flex: 1; }
+  .news-action-link { font-size: 13.5px; font-weight: 700; color: var(--tosca-700); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin-top: auto; transition: gap 0.2s; }
+  .news-action-link:hover { gap: 10px; color: var(--tosca-950); }
+
+  /* DETAIL ARTIKEL */
+  .news-detail-container {
+    background: #FFFFFF;
+    border: 1px solid #cbd5e1;
+    border-radius: 20px;
+    padding: clamp(28px, 4.5vw, 48px);
+    box-shadow: 0 15px 40px rgba(2, 25, 32, 0.08);
+    max-width: 850px;
+    margin: 0 auto;
+  }
+  .news-meta-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 16px 0 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .author-avatar {
+    width: 44px; height: 44px;
+    background: var(--tosca-950);
+    color: #FFFFFF;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 13px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(2, 25, 32, 0.3);
+    border: 1.5px solid var(--tosca-glow);
+  }
+  .author-info h4 { margin: 0; font-size: 14.5px; color: var(--tosca-900); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; }
+  .author-info p { margin: 4px 0 0; font-size: 12px; color: #475569; font-weight: 600; }
+  
+  /* SLIDER FOTO INTERAKTIF */
+  .news-slider-wrapper {
+    position: relative;
+    width: 100%;
+    height: clamp(260px, 42vw, 400px);
+    background: var(--tosca-900);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 8px;
+    box-shadow: 0 8px 25px rgba(2, 25, 32, 0.15);
+  }
+  .slide-item {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: none;
+    cursor: pointer;
+  }
+  .slide-item.active { display: block; }
+  .slide-item img { width: 100%; height: 100%; object-fit: cover; }
+  
+  .slider-btn {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    background: rgba(2, 25, 32, 0.9);
+    color: #FFFFFF;
+    border: 1.5px solid var(--tosca-glow);
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 5;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .slider-btn:hover { background: var(--tosca-950); transform: translateY(-50%) scale(1.05); }
+  .slider-prev { left: 12px; }
+  .slider-next { right: 12px; }
+  
+  .slider-dots {
+    position: absolute;
+    bottom: 14px;
+    left: 50%; transform: translateX(-50%);
+    display: flex; gap: 6px;
+    z-index: 5;
+    background: rgba(2, 25, 32, 0.75);
+    padding: 6px 12px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(34, 211, 238, 0.3);
+  }
+  .dot-indicator {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .dot-indicator.active { background: var(--tosca-glow); transform: scale(1.3); }
+
+  .img-zoom-hint {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(2, 25, 32, 0.9);
+    color: #FFFFFF;
+    padding: 5px 12px;
+    font-size: 11.5px;
+    font-weight: 700;
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 4;
+    border: 1px solid var(--tosca-glow);
+  }
+
+  .doc-photo-caption {
+    font-size: 12.5px;
+    color: #475569;
+    font-style: italic;
+    margin: 10px 0 32px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .article-body-text {
+    font-size: 16px;
+    line-height: 1.85;
+    color: #1e293b;
+    margin-bottom: 24px;
+    text-align: justify;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+  }
+
+  .news-quote {
+    background: #f0fdfa;
+    border-left: 4px solid var(--tosca-700);
+    padding: 22px 24px;
+    margin: 32px 0;
+    font-style: italic;
+    color: var(--tosca-950);
+    border-radius: 0 12px 12px 0;
+    line-height: 1.75;
+    font-size: 16px;
+    border-top: 1px solid rgba(14, 96, 115, 0.2);
+    border-right: 1px solid rgba(14, 96, 115, 0.2);
+    border-bottom: 1px solid rgba(14, 96, 115, 0.2);
+    font-weight: 500;
+  }
+  
+  .article-actions-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .back-btn-ui {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    color: var(--tosca-900);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: 13.5px;
+    transition: all 0.2s;
+  }
+  .back-btn-ui:hover { background: #e2e8f0; color: var(--tosca-950); }
+
+  .action-buttons-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .like-btn, .share-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 13.5px;
+    border: none;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .like-btn { background: #fee2e2; color: #dc2626; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.1); }
+  .like-btn:hover { background: #fecaca; transform: translateY(-1px); }
+  .share-btn { background: #e0f2fe; color: var(--tosca-800); box-shadow: 0 4px 12px rgba(14, 96, 115, 0.1); }
+  .share-btn:hover { background: #bae6fd; transform: translateY(-1px); }
+
+  /* FOOTER STYLING CUSTOM */
+  .footer-custom {
+    background-color: var(--tosca-950);
+    color: #94a3b8;
+    padding: 65px 20px 30px;
+    font-family: 'Inter', sans-serif;
+    border-top: 4px solid var(--tosca-700);
+  }
+  .fc-top-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1.1fr 1fr;
+    gap: 45px;
+    margin-bottom: 45px;
+  }
+  .fc-brand-box h3 {
+    font-size: 21px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 6px 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .fc-brand-box .subtitle {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--tosca-glow);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .fc-brand-box p {
+    font-size: 13.5px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .fc-heading {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .fc-heading::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 16px;
+    background: var(--tosca-glow);
+    border-radius: 2px;
+  }
+  .fc-soc-list {
+    display: flex;
+    gap: 10px;
+  }
+  .fc-soc-list a {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+  .fc-soc-list a:hover {
+    background: var(--tosca-glow);
+    color: var(--tosca-950);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(34, 211, 238, 0.3);
+  }
+  .fc-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .fc-contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: #cbd5e1;
+  }
+  .fc-contact-list li svg {
+    color: var(--tosca-glow);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .fc-divider-line {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .fc-legal-links {
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+  }
+  .fc-legal-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .fc-legal-links a:hover {
+    color: var(--tosca-glow);
+  }
+  .fc-copyright {
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 0;
+  }
+
+  @media (max-width: 960px) {
+    button#navToggle {
+      display: block !important;
+    }
+    .nav-cta {
+      display: none !important;
+    }
+    ul.nav-links {
+      display: none !important;
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      width: 100% !important;
+      background: var(--tosca-950) !important;
+      flex-direction: column !important;
+      padding: 20px 0 !important;
+      gap: 14px !important;
+      text-align: center !important;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5) !important;
+      border-top: 1px solid rgba(255,255,255,0.15) !important;
+      z-index: 9999 !important;
+    }
+    ul.nav-links.show {
+      display: flex !important;
+    }
+    ul.nav-links li {
+      width: 100% !important;
+    }
+    ul.nav-links li a {
+      font-size: 15px !important;
+      padding: 10px 0 !important;
+      display: block !important;
+    }
+
+    .page-header h1 { font-size: 26px !important; }
+    .page-header p { font-size: 13.5px !important; text-align: center !important; }
+
+    .card-grid-3 { grid-template-columns: 1fr !important; gap: 20px; }
+    .news-detail-container { padding: 20px; border-radius: 14px; }
+    .article-actions-bar { flex-direction: column; align-items: stretch; gap: 14px; }
+    .back-btn-ui, .action-buttons-group button { width: 100%; justify-content: center; padding: 12px; }
+    .action-buttons-group { display: grid !important; grid-template-columns: 1fr 1fr; width: 100%; }
+    .fc-top-grid { grid-template-columns: 1fr; gap: 30px; }
+    .fc-divider-line { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="../index.html" class="brand">
+      <div class="brand-mark">PC</div>
+      <div class="brand-text">
+        <div class="t1">PC IPNU-IPPNU</div>
+        <div class="t2">Kota Blitar</div>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="organisasi.html">Organisasi</a></li>
+      <li><a href="kegiatan.html">Kegiatan</a></li>
+      <li><a href="berita.html" class="active">Berita</a></li>
+      <li><a href="kaderisasi.html">Kaderisasi</a></li>
+      <li><a href="layanan.html">Layanan</a></li>
+      <li><a href="dokumen.html">Dokumen</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+    <a href="dashboard.html" class="nav-cta">Masuk Admin</a>
+    <button id="navToggle" aria-label="Toggle Menu">☰</button>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="wrap">
+    <div class="eyebrow-pill">WARTA &amp; INFORMASI RESMI</div>
+    <h1>Portal Berita <span>PC IPNU - IPPNU</span></h1>
+    <p>Kumpulan kabar terbaru, laporan kegiatan mendalam, serta pers rilis resmi dari Pimpinan Cabang IPNU-IPPNU Kota Blitar.</p>
+  </div>
+</section>
+
+<section class="section bg-white">
+  <div class="wrap">
+    
+    <div id="semuaBeritaSection">
+      <div class="section-head">
+        <div class="section-eyebrow">Arsip Warta Utama</div>
+        <h2>Semua Berita &amp; Liputan Khusus</h2>
+      </div>
+
+      <div class="card-grid-3">
+        
+        <article class="news-card-pro" onclick="bukaBerita('beritaCamPride')">
+          <div class="news-thumb-pro">
+            <span class="news-tag-pro">CBP-KPP</span>
+            <img src="../assets/images/camp.jpeg" alt="CamPride 2 DKC CBP-KPP IPNU IPPNU Kota Blitar">
+          </div>
+          <div class="news-body-pro">
+            <h3 class="news-title-pro">Mempererat Solidaritas Anggota, DKC CBP-KPP IPNU IPPNU Kota Blitar Sukses Gelar CamPride 2</h3>
+            <div class="news-meta-pro">11 Juli 2026 · Tim Media</div>
+            <p class="news-excerpt-pro">Camping bersama mengusung tema "One Camp, One Bond" di kawasan wisata Maliran / Kesambi Trees Park...</p>
+            <span class="news-action-link">Baca Selengkapnya →</span>
+          </div>
+        </article>
+
+        <article class="news-card-pro" onclick="bukaBerita('beritaPelantikanMaMts')">
+          <div class="news-thumb-pro">
+            <span class="news-tag-pro">Pelantikan</span>
+            <img src="../assets/images/pelantikanmamts1.jpeg" alt="Pelantikan Pengurus PK MA &amp; MTs Ma'arif NU Kota Blitar">
+          </div>
+          <div class="news-body-pro">
+            <h3 class="news-title-pro">Simbol Harapan &amp; Pengabdian: Semarak Pelantikan Pengurus PK IPNU-IPPNU MA &amp; MTs Ma'arif NU Kota Blitar Diwarnai Prosesi Pelepasan Merpati</h3>
+            <div class="news-meta-pro">02 September 2026 · Tim Media</div>
+            <p class="news-excerpt-pro">Pengukuhan khidmat nakhoda baru komisariat madrasah di Lapangan PP Nurul Ulum dilengkapi prosesi pelepasan burung merpati...</p>
+            <span class="news-action-link">Baca Selengkapnya →</span>
+          </div>
+        </article>
+
+        <article class="news-card-pro" onclick="bukaBerita('beritaDemisPK')">
+          <div class="news-thumb-pro">
+            <span class="news-tag-pro">Kaderisasi</span>
+            <img src="../assets/images/demispk1.jpeg" alt="Reorganisasi PK IPNU MA Ma'arif NU Kota Blitar">
+          </div>
+          <div class="news-body-pro">
+            <h3 class="news-title-pro">Regenerasi Kepemimpinan Pelajar: PK IPNU MA Ma'arif NU Kota Blitar Gelar Reorganisasi Masa Khidmah 2025–2026</h3>
+            <div class="news-meta-pro">29 Agustus 2026 · Tim Media</div>
+            <p class="news-excerpt-pro">Sidang pleno dipimpin Wasek 1 PC IPNU Kota Blitar, Rekan Rizky, dan pendemisioneran oleh Ketua PAC IPNU Kepanjenkidul, Rekan Mahda...</p>
+            <span class="news-action-link">Baca Selengkapnya →</span>
+          </div>
+        </article>
+
+        <article class="news-card-pro" onclick="bukaBerita('beritaMuktamar')">
+          <div class="news-thumb-pro">
+            <span class="news-tag-pro">Nasional</span>
+            <img src="../assets/images/muktamar.jpeg" alt="PC IPNU-IPPNU Kota Blitar Hadir Penuh Khidmat di Muktamar NU">
+          </div>
+          <div class="news-body-pro">
+            <h3 class="news-title-pro">Hadir Penuh Khidmat, Jajaran PC IPNU-IPPNU Kota Blitar Ikuti Rangkaian Muktamar Nahdlatul Ulama</h3>
+            <div class="news-meta-pro">10 September 2026 · Tim Media</div>
+            <p class="news-excerpt-pro">Membawa semangat kebersamaan kader muda Blitar, pengurus cabang hadir langsung di panggung nasional...</p>
+            <span class="news-action-link">Baca Selengkapnya →</span>
+          </div>
+        </article>
+
+        <article class="news-card-pro" onclick="bukaBerita('berita1')">
+          <div class="news-thumb-pro">
+            <span class="news-tag-pro">Kaderisasi</span>
+            <img src="../assets/images/audiensiatmi.jpeg" alt="Rencana MAKESTA dan Reaktivasi PK SMK Islam 1 Blitar">
+          </div>
+          <div class="news-body-pro">
+            <h3 class="news-title-pro">Perkuat Basis Pelajar Sekolah, PC IPNU-IPPNU Kota Blitar Matangkan Agenda MAKESTA &amp; Reaktivasi PK SMK Islam 1 Blitar</h3>
+            <div class="news-meta-pro">28 Agustus 2026 · Tim Media</div>
+            <p class="news-excerpt-pro">Langkah koordinasi matangkan persiapan pengkaderan formal dan reaktivasi komisariat di SMK Islam 1 Blitar...</p>
+            <span class="news-action-link">Baca Selengkapnya →</span>
+          </div>
+        </article>
+
+        <article class="news-card-pro" onclick="bukaBerita('beritaRapimcab')">
+          <div class="news-thumb-pro">
+            <span class="news-tag-pro">Konsolidasi</span>
+            <img src="../assets/images/rapimrakor.jpeg" alt="RAPIMCAB &amp; RAKORCAB PC IPNU-IPPNU Kota Blitar">
+          </div>
+          <div class="news-body-pro">
+            <h3 class="news-title-pro">Konsolidasi Tanpa Batas! RAPIMCAB &amp; RAKORCAB Satukan Visi Perjuangan Pelajar Nahdliyin Blitar</h3>
+            <div class="news-meta-pro">20 Februari 2026 · Tim Media</div>
+            <p class="news-excerpt-pro">Forum strategis satukan langkah pengurus harian dan PAC demi optimalisasi program kerja...</p>
+            <span class="news-action-link">Baca Selengkapnya →</span>
+          </div>
+        </article>
+
+        <article class="news-card-pro" onclick="bukaBerita('beritaMplsStmi')">
+          <div class="news-thumb-pro">
+            <span class="news-tag-pro">Pendidikan</span>
+            <img src="../assets/images/mplsstmi.jpeg" alt="PC IPNU-IPPNU Bekali Ratusan Siswa Baru STMI">
+          </div>
+          <div class="news-body-pro">
+            <h3 class="news-title-pro">Tanamkan Nilai Moderasi Sejak Dini, PC IPNU-IPPNU Bekali Ratusan Siswa Baru STMI</h3>
+            <div class="news-meta-pro">Juli 2026 · Tim Media</div>
+            <p class="news-excerpt-pro">Hadir di MPLS STMI Kota Blitar, kader IPNU-IPPNU sukses inspirasi siswa lewat materi Aswaja...</p>
+            <span class="news-action-link">Baca Selengkapnya →</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div id="detailBeritaSection" style="display: none;">
+      
+      <!-- BERITA 1: CAMPRIDE 2 -->
+      <div id="beritaCamPride" class="news-detail-container" style="display: none;">
+        <span style="background:var(--tosca-950); color:var(--tosca-glow); font-size:11.5px; font-weight:800; padding:6px 14px; border-radius:50px; text-transform:uppercase; border:1.5px solid var(--tosca-glow); box-shadow:0 4px 12px rgba(2,25,32,0.3); display:inline-block;">CBP-KPP &amp; Kegiatan Keakraban</span>
+        <h2 style="font-size: clamp(20px, 2.8vw, 26px); font-weight:800; color:var(--tosca-950); margin:14px 0 6px; line-height:1.3; font-family:'Plus Jakarta Sans',sans-serif;">Mempererat Solidaritas Anggota, DKC CBP-KPP IPNU IPPNU Kota Blitar Sukses Gelar CamPride 2</h2>
+        <div class="news-meta-box">
+          <div class="author-avatar">TM</div>
+          <div class="author-info">
+            <h4>Tim Media PC IPNU-IPPNU Kota Blitar</h4>
+            <p>📍 Kawasan Wisata Maliran / Kesambi Trees Park, Blitar &nbsp;|&nbsp; 📅 11–12 Juli 2026</p>
+          </div>
+        </div>
+        
+        <div class="news-card-img" onclick="bukaFotoModal('../assets/images/camp.jpeg', 'Dokumentasi CamPride 2 DKC CBP-KPP IPNU IPPNU Kota Blitar di Maliran / Kesambi Trees Park')" style="width:100%; height:clamp(240px, 40vw, 380px); background:var(--tosca-900); border-radius:12px; overflow:hidden; margin-bottom:6px; cursor:pointer; position:relative;">
+          <img src="../assets/images/camp.jpeg" alt="CamPride 2 DKC CBP-KPP IPNU IPPNU Kota Blitar" style="width:100%; height:100%; object-fit:cover;">
+          <div class="img-zoom-hint">🔍 Klik untuk Perbesar</div>
+        </div>
+        <div class="doc-photo-caption">Dokumentasi Pelaksanaan CamPride 2 DKC CBP-KPP IPNU IPPNU Kota Blitar di Kawasan Wisata Maliran / Kesambi Trees Park</div>
+
+        <p class="article-body-text">
+          <strong>BLITAR</strong> — Dewan Koordinasi Cabang (DKC) Corp Brigade Pembangunan (CBP) dan Korp Pelajar Putri (KPP) IPNU IPPNU Kota Blitar kembali menggelar agenda keakraban tahunan bertajuk <strong>CamPride 2</strong>. Kegiatan kamping bersama yang mengusung tema <em>"One Camp, One Bond"</em> ini berlangsung selama dua hari, Sabtu hingga Minggu (11–12 Juli 2026), bertempat di kawasan wisata Maliran / Kesambi Trees Park, Blitar.
+        </p>
+        
+        <p class="article-body-text">
+          Agenda ini dirancang untuk mempererat ikatan kebersamaan antaranggota sekaligus membekali kader dengan keterampilan lapangan dalam suasana yang lebih santai dan menyatu dengan alam.
+        </p>
+
+        <p class="article-body-text">
+          Komandan DKC CBP Novando Danang Wijayanto bersama dengan Komandan DKC KPP Lilia Qotrun Nada menyatakan bahwa <em>CamPride 2</em> menjadi wadah strategis untuk menyelaraskan pemikiran serta membangun kekompakan tim di luar rutinitas organisasi formal.
+        </p>
+
+        <p class="article-body-text">
+          Selama dua hari pelaksanaan, para peserta disuguhi rangkaian materi dan simulasi keterampilan, salah satunya pelatihan Penanganan Pertama Pada Gawat Darurat (PPGD). Pelatihan ini penting diberikan sebagai bekal saat kondisi darurat bagi anggota CBP KPP yang sering terjun dalam aksi kemanusiaan dan pengawalan kegiatan.
+        </p>
+
+        <p class="article-body-text">
+          Tak hanya diisi materi teknis, kegiatan juga diselingi beragam <em>fun games</em>, sesi <em>coffee break</em>, dan diskusi santai di sekitar area perkemahan untuk mengasah kekompakan.
+        </p>
+
+        <p class="article-body-text">
+          Dengan harga tiket masuk (HTM) yang terjangkau sebesar 20 ribu rupiah, para peserta mendapatkan fasilitas konsumsi, materi pengalaman, hingga ruang keakraban bersama seluruh kader se-Kota Blitar.
+        </p>
+
+        <p class="article-body-text">
+          Puncak kegiatan perkemahan ini ditutup dengan sesi api unggun dan refleksi bersama yang dipimpin langsung oleh jajaran komandan DKC. Momentum di malam keakraban tersebut dimanfaatkan untuk membakar semangat juang para kader, memperkuat ikatan batin antarkecamatan, serta meneguhkan komitmen pengabdian kepada organisasi di bawah naungan Nahdlatul Ulama.
+        </p>
+
+        <p class="article-body-text">
+          Melalui tagar semangat <em>"We Are Still Here"</em>, DKC Kota Blitar mengisyaratkan keberlanjutan komitmen kader CBP KPP untuk terus hadir, aktif, dan solid dalam mengawal panji-panji pelajar NU di Kota Blitar.
+        </p>
+
+        <div class="article-actions-bar">
+          <a href="berita.html" class="back-btn-ui"><span>←</span> Kembali ke Semua Berita</a>
+          <div class="action-buttons-group">
+            <button class="like-btn" id="like-beritaCamPride" onclick="toggleLike('beritaCamPride')">❤️ <span id="like-count-beritaCamPride">92</span> Suka</button>
+            <button class="share-btn" onclick="copyToClipboard()">🔗 Salin Tautan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BERITA 2: PELANTIKAN MA & MTS MA'ARIF NU -->
+      <div id="beritaPelantikanMaMts" class="news-detail-container" style="display: none;">
+        <span style="background:var(--tosca-950); color:var(--tosca-glow); font-size:11.5px; font-weight:800; padding:6px 14px; border-radius:50px; text-transform:uppercase; border:1.5px solid var(--tosca-glow); box-shadow:0 4px 12px rgba(2,25,32,0.3); display:inline-block;">Pelantikan &amp; Pengukuhan Komisariat</span>
+        <h2 style="font-size: clamp(20px, 2.8vw, 26px); font-weight:800; color:var(--tosca-950); margin:14px 0 6px; line-height:1.3; font-family:'Plus Jakarta Sans',sans-serif;">Simbol Harapan &amp; Pengabdian: Semarak Pelantikan Pengurus PK IPNU-IPPNU MA &amp; MTs Ma'arif NU Kota Blitar Diwarnai Prosesi Pelepasan Merpati</h2>
+        <div class="news-meta-box">
+          <div class="author-avatar">TM</div>
+          <div class="author-info">
+            <h4>Tim Media PC IPNU-IPPNU Kota Blitar</h4>
+            <p>📍 Lapangan PP Nurul Ulum &nbsp;|&nbsp; 📅 02 September 2026</p>
+          </div>
+        </div>
+        
+        <div class="news-slider-wrapper" id="sliderPelantikan">
+          <div class="slide-item active" onclick="bukaFotoModal('../assets/images/pelantikanmamts1.jpeg', 'Dokumentasi Prosesi Pelantikan Pengurus PK IPNU-IPPNU MA & MTs Ma\'arif NU di Lapangan PP Nurul Ulum')">
+            <img src="../assets/images/pelantikanmamts1.jpeg" alt="Pelantikan PK MA &amp; MTs Ma'arif NU 1">
+            <div class="img-zoom-hint">🔍 Klik untuk Perbesar</div>
+          </div>
+          <div class="slide-item" onclick="bukaFotoModal('../assets/images/pelantikanmamts2.jpeg', 'Dokumentasi Prosesi Pelepasan Burung Merpati Simbolik di Lapangan PP Nurul Ulum')">
+            <img src="../assets/images/pelantikanmamts2.jpeg" alt="Pelantikan PK MA &amp; MTs Ma'arif NU 2">
+            <div class="img-zoom-hint">🔍 Klik untuk Perbesar</div>
+          </div>
+          <div class="slide-item" onclick="bukaFotoModal('../assets/images/pelantikanmamts3.jpeg', 'Dokumentasi Kebersamaan Pengurus Terlantik dan Jajaran PC IPNU-IPPNU Kota Blitar')">
+            <img src="../assets/images/pelantikanmamts3.jpeg" alt="Pelantikan PK MA &amp; MTs Ma'arif NU 3">
+            <div class="img-zoom-hint">🔍 Klik untuk Perbesar</div>
+          </div>
+          
+          <button class="slider-btn slider-prev" onclick="geserSlidePelantikan(-1)">❮</button>
+          <button class="slider-btn slider-next" onclick="geserSlidePelantikan(1)">❯</button>
+          
+          <div class="slider-dots">
+            <span class="dot-indicator active" onclick="pilihSlidePelantikan(0)"></span>
+            <span class="dot-indicator" onclick="pilihSlidePelantikan(1)"></span>
+            <span class="dot-indicator" onclick="pilihSlidePelantikan(2)"></span>
+          </div>
+        </div>
+        <div class="doc-photo-caption">Dokumentasi Pelaksanaan Pelantikan dan Pelepasan Merpati di Lapangan PP Nurul Ulum (Geser panah untuk melihat foto lainnya)</div>
+
+        <p class="article-body-text">
+          <strong>KOTA BLITAR</strong> — Denyut pengkaderan pelajar Nahdlatul Ulama di lingkungan institusi pendidikan kembali mencatatkan momentum penting yang sarat makna. Pimpinan Komisariat (PK) Ikatan Pelajar Nahdlatul Ulama (IPNU) dan Ikatan Pelajar Putri Nahdlatul Ulama (IPPNU) Madrasah Aliyah (MA) serta Madrasah Tsanawiyah (MTs) Ma'arif NU Kota Blitar dengan khidmat menyelenggarakan rangkaian acara pelantikan pengurus baru untuk Masa Khidmah 2025–2026. Pelaksanaan kegiatan sakral ini mengambil tanggal istimewa bertepatan dengan tanggal 02 September 2026 Masehi.
+        </p>
+        
+        <p class="article-body-text">
+          Bertempat di lapangan utama Kompleks Pondok Pesantren (PP) Nurul Ulum Kota Blitar, acara pengukuhan akbar ini dihadiri oleh ratusan kader pelajar dari tingkat tsanawiyah dan aliyah, jajaran dewan guru, pengasuh pondok pesantren, pembina yayasan, serta pengurus harian Pimpinan Cabang (PC) IPNU-IPPNU Kota Blitar. Suasana lapangan mendadak terasa begitu khidmat tatkala lantunan ayat suci Al-Qur'an dan pembacaan selawat kebangsaan berkumandang, menggugah semangat kebersamaan seluruh hadirin yang memadati area lapangan.
+        </p>
+
+        <p class="article-body-text">
+          Prosesi inti dimulai dengan pembacaan surat keputusan kepengurusan dilanjutkan pengucapan ikrar sumpah jabatan yang dipandu secara langsung oleh perwakilan pengurus harian PC IPNU-IPPNU Kota Blitar. Seluruh pengurus baru unsur putra maupun putri berdiri tegap mengucapkan janji setia untuk mengawal tradisi keislaman Ahlussunnah wal Jamaah an-Nahdliyah, menjalankan roda organisasi dengan penuh tanggung jawab, serta mendedikasikan diri bagi kemajuan intelektual dan spiritual pelajar madrasah.
+        </p>
+
+        <p class="article-body-text">
+          Setelah prosesi penyerahan pataka organisasi selesai dilaksanakan, suasana acara semakin meriah dan penuh kekhidmatan tatkala memasuki agenda prosesi simbolis yang dinanti-nantikan oleh seluruh peserta di Lapangan PP Nurul Ulum, yakni <strong>pelepasan sepasang burung merpati ke udara bebas</strong>. Pelepasan burung merpati ini dilakukan secara bersama-sama oleh perwakilan pengurus cabang, pengasuh pesantren, serta ketua komisariat terpilih di tengah lapangan terbuka.
+        </p>
+
+        <div class="news-quote">
+          <strong>Makna Filosofis Pelepasan Burung Merpati di Lapangan PP Nurul Ulum:</strong><br><br>
+          "Pelepasan burung merpati putih ke angkasa bukan sekadar seremonial pemanis acara, melainkan sebuah lambang filosofis yang mendalam. Merpati dikenal sebagai simbol kesetiaan, ketulusan, serta perdamaian. Harapannya, para pengurus baru PK IPNU-IPPNU MA dan MTs Ma'arif NU Kota Blitar dapat terbang tinggi mengejar cita-cita luhur, membawa nama baik organisasi dengan penuh loyalitas, serta menebarkan kedamaian dan kemaslahatan di lingkungan madrasah maupun masyarakat luas."
+        </div>
+
+        <p class="article-body-text">
+          Pihak dewan guru dan kepala madrasah MA &amp; MTs Ma'arif NU Kota Blitar yang memberikan sambutan seusai prosesi menyampaikan rasa bangga serta apresiasi mendalam atas suksesnya acara pelantikan ini. Pihak madrasah menilai bahwa kolaborasi aktif melalui organisasi IPNU-IPPNU merupakan sarana pembentukan karakter (character building) yang sangat efektif bagi para siswa agar memiliki ketahanan mental, jiwa kepemimpinan, serta kepekaan sosial yang tinggi.
+        </p>
+
+        <p class="article-body-text">
+          "Kami berpesan kepada anak-anakku yang baru saja dilantik agar merawat amanah ini dengan sebaik-baiknya. Jadikan organisasi ini sebagai wadah berlatih memimpin dan dipimpin, serta tempat mengasah kreativitas tanpa melupakan kewajiban utama dalam menuntut ilmu di bangku madrasah," ungkap salah satu perwakilan guru pembina dalam sesi ramah tamah.
+        </p>
+
+        <p class="article-body-text">
+          Rangkaian acara pelantikan ini ditutup dengan doa bersama demi memohon keberkahan dan kelancaran dalam menjalankan program kerja satu periode ke depan. Acara diakhiri dengan sesi foto bersama, jabat tangan hangat, serta pekikan yel-yel perjuangan pelajar Nahdliyin yang menggema penuh semangat di Lapangan PP Nurul Ulum.
+        </p>
+
+        <div class="article-actions-bar">
+          <a href="berita.html" class="back-btn-ui"><span>←</span> Kembali ke Semua Berita</a>
+          <div class="action-buttons-group">
+            <button class="like-btn" id="like-beritaPelantikanMaMts" onclick="toggleLike('beritaPelantikanMaMts')">❤️ <span id="like-count-beritaPelantikanMaMts">75</span> Suka</button>
+            <button class="share-btn" onclick="copyToClipboard()">🔗 Salin Tautan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BERITA 3: REORGANISASI PK MA MA'ARIF NU -->
+      <div id="beritaDemisPK" class="news-detail-container" style="display: none;">
+        <span style="background:var(--tosca-950); color:var(--tosca-glow); font-size:11.5px; font-weight:800; padding:6px 14px; border-radius:50px; text-transform:uppercase; border:1.5px solid var(--tosca-glow); box-shadow:0 4px 12px rgba(2,25,32,0.3); display:inline-block;">Kaderisasi Komisariat &amp; Reorganisasi</span>
+        <h2 style="font-size: clamp(20px, 2.8vw, 26px); font-weight:800; color:var(--tosca-950); margin:14px 0 6px; line-height:1.3; font-family:'Plus Jakarta Sans',sans-serif;">Regenerasi Kepemimpinan Pelajar: PK IPNU MA Ma'arif NU Kota Blitar Gelar Reorganisasi Masa Khidmah 2025–2026</h2>
+        <div class="news-meta-box">
+          <div class="author-avatar">TM</div>
+          <div class="author-info">
+            <h4>Tim Media PC IPNU-IPPNU Kota Blitar</h4>
+            <p>📍 MA Ma'arif NU Kota Blitar &nbsp;|&nbsp; 📅 29 Agustus 2026</p>
+          </div>
+        </div>
+        
+        <div class="news-slider-wrapper" id="sliderPK">
+          <div class="slide-item active" onclick="bukaFotoModal('../assets/images/demispk1.jpeg', 'Dokumentasi Sidang Pleno Reorganisasi PK IPNU MA Ma\'arif NU Kota Blitar Masa Khidmah 2025–2026')">
+            <img src="../assets/images/demispk1.jpeg" alt="Reorganisasi PK IPNU MA Ma'arif NU Blitar 1">
+            <div class="img-zoom-hint">🔍 Klik untuk Perbesar</div>
+          </div>
+          <div class="slide-item" onclick="bukaFotoModal('../assets/images/demispk2.jpeg', 'Dokumentasi Pengurus dan Kader Pelajar MA Ma\'arif NU Kota Blitar')">
+            <img src="../assets/images/demispk2.jpeg" alt="Reorganisasi PK IPNU MA Ma'arif NU Blitar 2">
+            <div class="img-zoom-hint">🔍 Klik untuk Perbesar</div>
+          </div>
+          
+          <button class="slider-btn slider-prev" onclick="geserSlidePK(-1)">❮</button>
+          <button class="slider-btn slider-next" onclick="geserSlidePK(1)">❯</button>
+          
+          <div class="slider-dots">
+            <span class="dot-indicator active" onclick="pilihSlidePK(0)"></span>
+            <span class="dot-indicator" onclick="pilihSlidePK(1)"></span>
+          </div>
+        </div>
+        <div class="doc-photo-caption">Dokumentasi Pelaksanaan Reorganisasi Pimpinan Komisariat (PK) IPNU MA Ma'arif NU Kota Blitar (Geser panah untuk melihat foto lainnya)</div>
+
+        <p class="article-body-text">
+          <strong>KOTA BLITAR</strong> — Dinamika organisasi di tingkat akar rumput kembali menunjukkan denyut kehidupan yang membanggakan. Pimpinan Komisariat (PK) Ikatan Pelajar Nahdlatul Ulama (IPNU) Madrasah Aliyah (MA) Ma'arif NU Kota Blitar resmi menyelenggarakan agenda akbar Reorganisasi Kepengurusan untuk Masa Khidmah 2025–2026. Acara sakral yang dihadiri oleh jajaran pengurus harian Pimpinan Cabang, pembina madrasah, serta puluhan kader pelajar berlangsung khidmat di aula madrasah.
+        </p>
+        
+        <p class="article-body-text">
+          Pelaksanaan reorganisasi ini memegang peranan yang amat vital dalam menjaga mata rantai regenerasi kepemimpinan pelajar di lingkungan madrasah naungan Lembaga Pendidikan Ma'arif NU. Di tengah arus perubahan sosial yang begitu cepat, komisariat sekolah dituntut untuk senantiasa melahirkan kader-kader yang tidak hanya cerdas secara akademis, tetapi juga memiliki militansi tinggi terhadap tradisi ke-Aswaja-an.
+        </p>
+
+        <p class="article-body-text">
+          Rangkaian persidangan inti dalam agenda reorganisasi ini dipimpin secara langsung oleh Wakil Sekretaris 1 (Wasek 1) Pimpinan Cabang (PC) IPNU Kota Blitar, <strong>Rekan Rizky</strong>. Beliau bertindak sebagai pimpinan sidang yang mengawal jalannya pembahasan tata tertib dan Laporan Pertanggungjawaban (LPJ) dengan cermat serta seksama demi kelancaran seluruh rangkaian acara.
+        </p>
+
+        <p class="article-body-text">
+          Setelah pemaparan dan evaluasi LPJ dari pengurus PK IPNU MA Ma'arif NU masa khidmah 2025–2026 yang disampaikan oleh ketua komisariat, Rekan Almaz, acara dilanjutkan dengan puncak persidangan pleno berupa proses pendemisioneran pengurus lama. Secara resmi, prosesi pendemisioneran dipimpin langsung oleh Ketua Pimpinan Anak Cabang (PAC) IPNU Kepanjenkidul, <strong>Rekan Mahda</strong>, yang menyatakan bahwa kepengurusan masa khidmah tersebut telah resmi purna tugas.
+        </p>
+
+        <div class="news-quote">
+          <strong>Pesan &amp; Sambutan Ketua PC IPNU Kota Blitar 2025–2027 Rekan Ahmad Hafy Akmal Moeslim :</strong><br><br>
+          "Kepada seluruh pengurus baru PK IPNU MA Ma'arif NU Kota Blitar nanti, saya berpesan agar senantiasa meresapi makna hakiki dari trilogi pelajar: <strong>Belajar, Berjuang, Bertakwa</strong>. 
+          <br><br>
+          <strong>Belajar</strong> adalah kewajiban utama kita untuk menguasai ilmu pengetahuan dan teknologi tanpa meninggalkan akar keislaman. <strong>Berjuang</strong> berarti mendedikasikan tenaga dan pikiran untuk kemaslahatan umat serta kemajuan organisasi di lingkungan madrasah. Dan <strong>Bertakwa</strong> adalah benteng spiritual agar setiap langkah pengabdian kita senantiasa mendapatkan ridha Allah SWT. Jadikan komisariat ini sebagai rumah yang nyaman untuk tumbuh bersama."
+        </div>
+
+        <p class="article-body-text">
+          Pihak madrasah melalui dewan guru pembina turut menyampaikan apresiasi yang mendalam atas terselenggaranya reorganisasi ini serta ucapan terima kasih kepada kepengurusan di bawah kepemimpinan Rekan Almaz, pengawalan sidang oleh Wasek 1 PC IPNU Kota Blitar Rekan Rizky, serta pendemisioneran resmi oleh Ketua PAC IPNU Kepanjenkidul Rekan Mahda. Pihak sekolah menegaskan komitmennya untuk terus memberikan dukungan penuh terhadap setiap kegiatan positif yang diinisiasi oleh para kader IPNU di lingkungan kampus MA Ma'arif NU Kota Blitar.
+        </p>
+
+        <p class="article-body-text">
+          Dengan terpilihnya nakhoda baru serta dilantiknya pengurus dalam waktu dekat, sinergi antara Pimpinan Cabang, Pimpinan Anak Cabang, dan Pimpinan Komisariat diyakini akan semakin erat. Kolaborasi strategis ini diharapkan mampu menciptakan kader-kader pelajar Nahdliyin yang siap menghadapi tantangan zaman serta menjadi teladan di tengah masyarakat.
+        </p>
+
+        <p class="article-body-text">
+          Seluruh rangkaian acara ditutup dengan doa bersama serta sesi foto kebersamaan antara pengurus lama, pengurus baru, jajaran PC IPNU Kota Blitar, PAC Kepanjenkidul, dan seluruh tamu undangan. Semangat kebersamaan yang terpancar menjadi bukti nyata bahwa roda pengabdian pelajar Nahdlatul Ulama di Kota Blitar akan terus berdenyut hidup dari masa ke masa.
+        </p>
+
+        <div class="article-actions-bar">
+          <a href="berita.html" class="back-btn-ui"><span>←</span> Kembali ke Semua Berita</a>
+          <div class="action-buttons-group">
+            <button class="like-btn" id="like-beritaDemisPK" onclick="toggleLike('beritaDemisPK')">❤️ <span id="like-count-beritaDemisPK">64</span> Suka</button>
+            <button class="share-btn" onclick="copyToClipboard()">🔗 Salin Tautan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BERITA 4: MUKTAMAR NU -->
+      <div id="beritaMuktamar" class="news-detail-container" style="display: none;">
+        <span style="background:var(--tosca-950); color:var(--tosca-glow); font-size:11.5px; font-weight:800; padding:6px 14px; border-radius:50px; text-transform:uppercase; border:1.5px solid var(--tosca-glow); box-shadow:0 4px 12px rgba(2,25,32,0.3); display:inline-block;">Liputan Khusus Nasional &amp; Muktamar NU</span>
+        <h2 style="font-size: clamp(20px, 2.8vw, 26px); font-weight:800; color:var(--tosca-950); margin:14px 0 6px; line-height:1.3; font-family:'Plus Jakarta Sans',sans-serif;">Hadir Penuh Khidmat, Jajaran PC IPNU-IPPNU Kota Blitar Ikuti Rangkaian Muktamar Nahdlatul Ulama</h2>
+        <div class="news-meta-box">
+          <div class="author-avatar">TM</div>
+          <div class="author-info">
+            <h4>Tim Media PC IPNU-IPPNU Kota Blitar</h4>
+            <p>📍 Arena Muktamar Nasional &nbsp;|&nbsp; 📅 10 September 2026</p>
+          </div>
+        </div>
+        
+        <div class="news-card-img" onclick="bukaFotoModal('../assets/images/muktamar.jpeg', 'Dokumentasi Kehadiran Jajaran Pengurus PC IPNU-IPPNU Kota Blitar di Arena Muktamar Nahdlatul Ulama')" style="width:100%; height:clamp(240px, 40vw, 380px); background:var(--tosca-900); border-radius:12px; overflow:hidden; margin-bottom:6px; cursor:pointer; position:relative;">
+          <img src="../assets/images/muktamar.jpeg" alt="PC IPNU-IPPNU Kota Blitar Hadir Penuh Khidmat di Muktamar NU" style="width:100%; height:100%; object-fit:cover;">
+          <div class="img-zoom-hint">🔍 Klik untuk Perbesar</div>
+        </div>
+        <div class="doc-photo-caption">Dokumentasi Kehadiran Jajaran Pengurus PC IPNU-IPPNU Kota Blitar di Arena Muktamar Nahdlatul Ulama</div>
+
+        <p class="article-body-text">
+          <strong>KOTA BLITAR / ARENA MUKTAMAR</strong> — Perhelatan akbar Muktamar Nahdlatul Ulama yang mempertemukan jutaan umat Islam serta warga Nahdliyin dari berbagai penjuru nusantara kembali mencatatkan momen bersejarah yang sarat makna. Jajaran pengurus Pimpinan Cabang (PC) Ikatan Pelajar Nahdlatul Ulama (IPNU) dan Ikatan Pelajar Putri Nahdlatul Ulama (IPPNU) Kota Blitar turut hadir secara langsung di lokasi acara dengan penuh rasa takzim dan khidmat mengikuti seluruh rangkaian kegiatan muktamar.
+        </p>
+        
+        <p class="article-body-text">
+          Kehadiran para pengurus cabang di arena muktamar ini didasari oleh niat kuat untuk bersilaturahmi, menyerap energi perjuangan para ulama, serta menyaksikan secara langsung proses permusyawaratan tertinggi organisasi. Sebagai bagian dari banom NU yang fokus pada pembinaan pelajar, momen ini dimanfaatkan untuk memperluas wawasan kebangsaan serta memperkuat komitmen pengabdian kepada jam'iyah.
+        </p>
+
+        <p class="article-body-text">
+          Suasana di sekitar arena muktamar tampak begitu meriah dipadati oleh lautan manusia berbusana Muslim serta atribut kebesaran Nahdlatul Ulama. Gema shalawat dan lantunan ayat suci Al-Qur'an terdengar silih berganti mengiringi langkah para peserta yang antusias mengikuti jalannya sidang pleno maupun berbagai agenda pendukung yang disiapkan oleh panitia nasional.
+        </p>
+
+        <p class="article-body-text">
+          Bagi rombongan asal Kota Blitar, kesempatan ini memberikan banyak pelajaran berharga mengenai dinamika organisasi skala besar. Nilai-nilai kesabaran, musyawarah untuk mufakat, serta ketawadukan para kiai sepuh dalam merumuskan solusi keumatan menjadi teladan nyata yang dapat diserap dan diterapkan dalam mengelola roda kepengurusan di tingkat daerah.
+        </p>
+
+        <div class="news-quote">
+          "Kehadiran kami di muktamar ini adalah wujud kecintaan dan khidmat kepada para kiai serta jam'iyah Nahdlatul Ulama. Semoga semangat perjuangan yang kami saksikan di sini dapat menular dan membakar semangat kader-kader muda di Kota Blitar." <em>— Tim Media PC IPNU-IPPNU Kota Blitar.</em>
+        </div>
+
+        <p class="article-body-text">
+          Di sela-sela kegiatan utama, pengurus cabang juga menyempatkan diri untuk berdiskusi santai dengan kader-kader muda dari berbagai daerah lain guna bertukar pengalaman seputar program kerja dan strategi pengembangan komisariat di sekolah maupun madrasah. Pertukaran gagasan ini dinilai sangat positif untuk memperkaya referensi pengelolaan organisasi ke depan.
+        </p>
+
+        <p class="article-body-text">
+          Setelah rangkaian acara muktamar rampung dilaksanakan, seluruh rombongan kembali pulang ke Blitar dengan membawa segudang pengalaman serta motivasi baru untuk meningkatkan kualitas gerakan pelajar Nahdliyin di daerah. Semangat kebersamaan yang terjalin selama di arena diharapkan mampu mempererat solidaritas antar pengurus.
+        </p>
+
+        <p class="article-body-text">
+          Pihak pengurus menyampaikan terima kasih kepada seluruh pihak yang telah mendukung kelancaran perjalanan serta kehadiran mereka dalam perhelatan akbar tersebut. Dukungan moral dan doa dari warga Nahdliyin Kota Blitar menjadi kekuatan utama dalam menjalankan amanah organisasi dengan sebaik-baiknya.
+        </p>
+
+        <div class="article-actions-bar">
+          <a href="berita.html" class="back-btn-ui"><span>←</span> Kembali ke Semua Berita</a>
+          <div class="action-buttons-group">
+            <button class="like-btn" id="like-beritaMuktamar" onclick="toggleLike('beritaMuktamar')">❤️ <span id="like-count-beritaMuktamar">89</span> Suka</button>
+            <button class="share-btn" onclick="copyToClipboard()">🔗 Salin Tautan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BERITA 5: MAKESTA & REAKTIVASI PK SMK ISLAM 1 BLITAR -->
+      <div id="berita1" class="news-detail-container" style="display: none;">
+        <span style="background:var(--tosca-950); color:var(--tosca-glow); font-size:11.5px; font-weight:800; padding:6px 14px; border-radius:50px; text-transform:uppercase; border:1.5px solid var(--tosca-glow); box-shadow:0 4px 12px rgba(2,25,32,0.3); display:inline-block;">Kaderisasi &amp; Organisasi Sekolah</span>
+        <h2 style="font-size: clamp(20px, 2.8vw, 26px); font-weight:800; color:var(--tosca-950); margin:14px 0 6px; line-height:1.3; font-family:'Plus Jakarta Sans',sans-serif;">Perkuat Basis Pelajar Sekolah, PC IPNU-IPPNU Kota Blitar Matangkan Agenda MAKESTA &amp; Reaktivasi PK SMK Islam 1 Blitar</h2>
+        <div class="news-meta-box">
+          <div class="author-avatar">TM</div>
+          <div class="author-info">
+            <h4>Tim Media PC IPNU-IPPNU Kota Blitar</h4>
+            <p>📍 Kota Blitar &nbsp;|&nbsp; 📅 28 Agustus 2026</p>
+          </div>
+        </div>
+        
+        <div class="news-card-img" onclick="bukaFotoModal('../assets/images/audiensiatmi.jpeg', 'Dokumentasi Rapat Koordinasi Pembahasan Rencana MAKESTA dan Reaktivasi PK IPNU-IPPNU SMK Islam 1 Blitar')" style="width:100%; height:clamp(240px, 40vw, 380px); background:var(--tosca-900); border-radius:12px; overflow:hidden; margin-bottom:6px; cursor:pointer; position:relative;">
+          <img src="../assets/images/audiensiatmi.jpeg" alt="Rapat Koordinasi SMK Islam 1 Blitar" style="width:100%; height:100%; object-fit:cover;">
+          <div class="img-zoom-hint">🔍 Klik untuk Perbesar</div>
+        </div>
+        <div class="doc-photo-caption">Dokumentasi Rapat Koordinasi Pembahasan Rencana MAKESTA dan Reaktivasi PK IPNU-IPPNU SMK Islam 1 Blitar</div>
+
+        <p class="article-body-text">
+          <strong>KOTA BLITAR</strong> — Pimpinan Cabang (PC) Ikatan Pelajar Nahdlatul Ulama (IPNU) dan Ikatan Pelajar Putri Nahdlatul Ulama (IPPNU) Kota Blitar terus berupaya memperkuat basis kaderisasi di lingkungan sekolah menengah. Bertempat di ruang koordinasi, jajaran pengurus harian bersama tim kaderisasi melaksanakan rapat intensif guna mematangkan persiapan pelaksanaan Masa Kesetiaan Anggota (MAKESTA) sekaligus reaktivasi Pimpinan Komisariat (PK) IPNU-IPPNU di SMK Islam 1 Blitar.
+        </p>
+        
+        <p class="article-body-text">
+          Berdasarkan hasil musyawarah dan koordinasi bersama pihak terkait, pelaksanaan pengkaderan formal tingkat dasar (MAKESTA) di SMK Islam 1 Blitar dijadwalkan akan dihelat pada tanggal 11 hingga 12 September mendatang. Kegiatan ini dirancang berlangsung mulai pukul 13.00 WIB hingga selesai setiap harinya, bertempat langsung di kompleks sekolah SMK Islam 1 Blitar. Estimasi peserta yang akan ambil bagian berkisar antara 30 hingga 50 orang pelajar.
+        </p>
+
+        <p class="article-body-text">
+          Langkah reaktivasi ini dinilai penting untuk segera direalisasikan mengingat masa khidmah kepengurusan komisariat sebelumnya telah berakhir. Dalam masa transisi menuju pembentukan struktur definitif yang baru, pelaksanaan MAKESTA dan pembinaan awal peserta didik akan dikoordinasikan secara langsung di bawah naungan Pimpinan Anak Cabang (PAC) Kepanjenkidul guna menjaga kesinambungan organisasi.
+        </p>
+
+        <p class="article-body-text">
+          Dari hasil pendataan awal yang dilakukan oleh tim perumus, tercatat adanya potensi kader yang cukup aktif di sekolah tersebut, yang terdiri dari pelajar putra maupun pelajar putri. Sebagian peserta juga dipersiapkan untuk mengikuti tahap pengkaderan formal agar kelak siap mengemban tanggung jawab sebagai pengurus komisariat yang baru di lingkungan sekolah.
+        </p>
+
+        <div class="news-quote">
+          "Reaktivasi komisariat sekolah adalah bagian penting dari kesinambungan kaderisasi Nahdlatul Ulama. Melalui MAKESTA di SMK Islam 1 Blitar ini, kami berupaya membimbing para pelajar agar memiliki pemahaman keislaman yang moderat serta semangat berorganisasi yang baik." <em>— Tim Media PC IPNU-IPPNU Kota Blitar.</em>
+        </div>
+
+        <p class="article-body-text">
+          Guna memastikan keberlanjutan pembinaan pasca-pelatihan, tim pendamping cabang nantinya juga akan membantu melakukan pemetaan zonasi domisili para siswa. Langkah ini diambil agar pelajar yang bersekolah di SMK Islam 1 Blitar namun bertempat tinggal di luar rayon sekolah dapat terhubung dengan Pimpinan Ranting (PR) atau Pimpinan Anak Cabang (PAC) sesuai wilayah tempat tinggal mereka masing-masing.
+        </p>
+
+        <p class="article-body-text">
+          Dengan adanya koordinasi yang baik antara pihak sekolah dan pengurus cabang, diharapkan pembinaan kader muda dapat berjalan secara lancar tanpa hambatan berarti. Sinergi ini juga mendapat sambutan positif dari berbagai pihak yang peduli terhadap perkembangan aktivitas positif di kalangan pelajar sekolah.
+        </p>
+
+        <p class="article-body-text">
+          Pihak pengurus mengajak seluruh kader untuk turut mendoakan kelancaran dan kesuksesan agenda MAKESTA di SMK Islam 1 Blitar. Dukungan dari para guru serta pembina sekolah menjadi salah satu faktor penentu tercapainya tujuan pembinaan karakter bagi para siswa di lingkungan sekolah.
+        </p>
+
+        <div class="article-actions-bar">
+          <a href="berita.html" class="back-btn-ui"><span>←</span> Kembali ke Semua Berita</a>
+          <div class="action-buttons-group">
+            <button class="like-btn" id="like-berita1" onclick="toggleLike('berita1')">❤️ <span id="like-count-berita1">24</span> Suka</button>
+            <button class="share-btn" onclick="copyToClipboard()">🔗 Salin Tautan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BERITA 6: RAPIMCAB & RAKORCAB -->
+      <div id="beritaRapimcab" class="news-detail-container" style="display: none;">
+        <span style="background:var(--tosca-950); color:var(--tosca-glow); font-size:11.5px; font-weight:800; padding:6px 14px; border-radius:50px; text-transform:uppercase; border:1.5px solid var(--tosca-glow); box-shadow:0 4px 12px rgba(2,25,32,0.3); display:inline-block;">Konsolidasi &amp; Organisasi Cabang</span>
+        <h2 style="font-size: clamp(20px, 2.8vw, 26px); font-weight:800; color:var(--tosca-950); margin:14px 0 6px; line-height:1.3; font-family:'Plus Jakarta Sans',sans-serif;">Konsolidasi Tanpa Batas! RAPIMCAB &amp; RAKORCAB Satukan Visi Perjuangan Pelajar Nahdliyin Blitar</h2>
+        <div class="news-meta-box">
+          <div class="author-avatar">TM</div>
+          <div class="author-info">
+            <h4>Tim Media PC IPNU-IPPNU Kota Blitar</h4>
+            <p>📍 Gedung Sekretariat Cabang &nbsp;|&nbsp; 📅 20 Februari 2026</p>
+          </div>
+        </div>
+        
+        <div class="news-card-img" onclick="bukaFotoModal('../assets/images/rapimrakor.jpeg', 'Dokumentasi RAPIMCAB & RAKORCAB PC IPNU-IPPNU Kota Blitar')" style="width:100%; height:clamp(240px, 40vw, 380px); background:var(--tosca-900); border-radius:12px; overflow:hidden; margin-bottom:6px; cursor:pointer; position:relative;">
+          <img src="../assets/images/rapimrakor.jpeg" alt="RAPIMCAB &amp; RAKORCAB PC IPNU-IPPNU Kota Blitar" style="width:100%; height:100%; object-fit:cover;">
+          <div class="img-zoom-hint">🔍 Klik untuk Perbesar</div>
+        </div>
+        <div class="doc-photo-caption">Dokumentasi Pelaksanaan RAPIMCAB &amp; RAKORCAB PC IPNU-IPPNU Kota Blitar</div>
+
+        <p class="article-body-text">
+          <strong>KOTA BLITAR</strong> — Pimpinan Cabang (PC) Ikatan Pelajar Nahdlatul Ulama (IPNU) dan Ikatan Pelajar Putri Nahdlatul Ulama (IPPNU) Kota Blitar sukses menggelar Rapat Pimpinan Cabang (RAPIMCAB) dan Rapat Koordinasi Cabang (RAKORCAB). Forum strategis ini diselenggarakan sebagai langkah nyata untuk menyatukan langkah pengurus harian serta jajaran Pimpinan Anak Cabang (PAC) demi optimalisasi program kerja organisasi ke depan.
+        </p>
+        
+        <p class="article-body-text">
+          Agenda penting yang dihadiri oleh seluruh perwakilan pengurus ini berfokus pada evaluasi program serta perumusan taktik gerakan pelajar Nahdliyin di tengah tantangan zaman yang dinamis. Melalui forum ini, sinergitas antar-tingkatan struktur kepengurusan diperkuat agar roda organisasi dapat berjalan selaras dan berkelanjutan.
+        </p>
+
+        <p class="article-body-text">
+          Pimpinan sidang dalam rapimcab menekankan pentingnya disiplin organisasi serta keaktifan kader dalam merespons isu-isu kepemudaan dan pendidikan di Kota Blitar. Setiap pimpinan anak cabang diberikan ruang untuk memaparkan kendala di lapangan sekaligus mencari solusi bersama secara mufakat.
+        </p>
+
+        <p class="article-body-text">
+          Diskusi interaktif yang terbangun selama kegiatan mencakup berbagai aspek krusial, mulai dari tata kelola administrasi, digitalisasi arsip, hingga penguatan jejaring kaderisasi di sekolah dan pondok pesantren. Seluruh peserta tampak antusias mengikuti setiap sesi hingga tuntas.
+        </p>
+
+        <div class="news-quote">
+          "Konsolidasi tanpa batas adalah kunci utama keberhasilan gerakan kita. Dengan menyatukan visi dan misi, kita optimis pelajar Nahdliyin di Kota Blitar mampu menjadi pelopor perubahan yang membawa kemaslahatan bagi umat." <em>— Tim Media PC IPNU-IPPNU Kota Blitar.</em>
+        </div>
+
+        <p class="article-body-text">
+          Hasil dari RAKORCAB ini kemudian dituangkan ke dalam rekomendasi strategis yang wajib dijalankan oleh masing-masing departemen dan lembaga di bawah naungan Pimpinan Cabang. Langkah monitoring berkala juga disepakati guna memastikan setiap program kerja terlaksana dengan efektif.
+        </p>
+
+        <p class="article-body-text">
+          Menjelang akhir acara, seluruh jajaran pengurus memperbaharui komitmen bersama untuk terus berkhidmat di jalur pengkaderan NU dengan penuh keikhlasan dan rasa tanggung jawab tinggi terhadap masa depan generasi muda.
+        </p>
+
+        <p class="article-body-text">
+          Rangkaian kegiatan ditutup dengan doa bersama serta sesi ramah tamah guna mempererat ikatan kekeluargaan antarkader se-Kota Blitar, menandai dimulainya babak baru gerakan organisasi yang lebih solid.
+        </p>
+
+        <div class="article-actions-bar">
+          <a href="berita.html" class="back-btn-ui"><span>←</span> Kembali ke Semua Berita</a>
+          <div class="action-buttons-group">
+            <button class="like-btn" id="like-beritaRapimcab" onclick="toggleLike('beritaRapimcab')">❤️ <span id="like-count-beritaRapimcab">84</span> Suka</button>
+            <button class="share-btn" onclick="copyToClipboard()">🔗 Salin Tautan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BERITA 7: MPLS STMI -->
+      <div id="beritaMplsStmi" class="news-detail-container" style="display: none;">
+        <span style="background:var(--tosca-950); color:var(--tosca-glow); font-size:11.5px; font-weight:800; padding:6px 14px; border-radius:50px; text-transform:uppercase; border:1.5px solid var(--tosca-glow); box-shadow:0 4px 12px rgba(2,25,32,0.3); display:inline-block;">Pendidikan &amp; Pengenalan Lingkungan</span>
+        <h2 style="font-size: clamp(20px, 2.8vw, 26px); font-weight:800; color:var(--tosca-950); margin:14px 0 6px; line-height:1.3; font-family:'Plus Jakarta Sans',sans-serif;">Tanamkan Nilai Moderasi Sejak Dini, PC IPNU-IPPNU Bekali Ratusan Siswa Baru STMI</h2>
+        <div class="news-meta-box">
+          <div class="author-avatar">TM</div>
+          <div class="author-info">
+            <h4>Tim Media PC IPNU-IPPNU Kota Blitar</h4>
+            <p>📍 Kompleks STMI Kota Blitar &nbsp;|&nbsp; 📅 Juli 2026</p>
+          </div>
+        </div>
+        
+        <div class="news-card-img" onclick="bukaFotoModal('../assets/images/mplsstmi.jpeg', 'Dokumentasi Kehadiran PC IPNU-IPPNU di MPLS STMI Kota Blitar')" style="width:100%; height:clamp(240px, 40vw, 380px); background:var(--tosca-900); border-radius:12px; overflow:hidden; margin-bottom:6px; cursor:pointer; position:relative;">
+          <img src="../assets/images/mplsstmi.jpeg" alt="PC IPNU-IPPNU Bekali Ratusan Siswa Baru STMI" style="width:100%; height:100%; object-fit:cover;">
+          <div class="img-zoom-hint">🔍 Klik untuk Perbesar</div>
+        </div>
+        <div class="doc-photo-caption">Dokumentasi Kehadiran dan Pengisian Materi di MPLS STMI Kota Blitar</div>
+
+        <p class="article-body-text">
+          <strong>KOTA BLITAR</strong> — Masa Pengenalan Lingkungan Sekolah (MPLS) dimanfaatkan oleh Pimpinan Cabang (PC) Ikatan Pelajar Nahdlatul Ulama (IPNU) dan Ikatan Pelajar Putri Nahdlatul Ulama (IPPNU) Kota Blitar untuk turun langsung menyapa para pelajar baru. Hadir di tengah ratusan siswa STMI Kota Blitar, kader-kader IPNU-IPPNU sukses memberikan inspirasi serta menanamkan nilai-nilai moderasi beragama sejak dini.
+        </p>
+        
+        <p class="article-body-text">
+          Kehadiran tim pemateri dari pengurus cabang disambut dengan antusiasme tinggi oleh pihak sekolah maupun para peserta didik baru. Materi yang dikemas secara interaktif dan komunikatif membuat suasana pengenalan organisasi terasa menyenangkan dan mudah dipahami oleh para remaja seusia sekolah menengah.
+        </p>
+
+        <p class="article-body-text">
+          Dalam pemaparannya, para pemateri menekankan pentingnya memegang teguh prinsip Ahlussunnah wal Jamaah serta menjaga sikap toleransi di tengah keragaman lingkungan sosial dan sekolah. Pemahaman ini dinilai sangat krusial sebagai benteng pertahanan mental bagi para siswa di era digital.
+        </p>
+
+        <p class="article-body-text">
+          Selain penyuluhan wawasan kebangsaan dan keislaman moderat, para siswa juga diperkenalkan dengan manfaat positif bergabung dalam organisasi pelajar Nahdliyin sebagai wadah pengembangan bakat, kepemimpinan, dan kreativitas positif.
+        </p>
+
+        <div class="news-quote">
+          "Penanaman nilai moderasi beragama sejak bangku sekolah adalah fondasi utama menciptakan generasi yang toleran, cinta tanah air, dan berakhlakul karimah. Kami bangga bisa membersamai adik-adik siswa baru STMI." <em>— Tim Media PC IPNU-IPPNU Kota Blitar.</em>
+        </div>
+
+        <p class="article-body-text">
+          Pihak manajemen sekolah menyampaikan apresiasi mendalam atas sinergi positif yang terjalin bersama PC IPNU-IPPNU Kota Blitar dalam menyukseskan rangkaian acara MPLS tahun ajaran baru ini. Kehadiran banom NU terbukti mampu memberikan warna edukatif yang konstruktif.
+        </p>
+
+        <p class="article-body-text">
+          Melalui kegiatan pengenalan ini, diharapkan para siswa baru tidak hanya beradaptasi dengan lingkungan sekolah yang baru, tetapi juga memiliki motivasi kuat untuk aktif mengikuti kegiatan ekstrakurikuler kepelajaran di bawah naungan IPNU dan IPPNU.
+        </p>
+
+        <p class="article-body-text">
+          Acara ditutup dengan sesi tanya jawab interaktif, penyerahan cinderamata simbolis, serta sesi foto bersama seluruh siswa baru dan tim pemateri di halaman utama kompleks STMI Kota Blitar dengan penuh semarak.
+        </p>
+
+        <div class="article-actions-bar">
+          <a href="berita.html" class="back-btn-ui"><span>←</span> Kembali ke Semua Berita</a>
+          <div class="action-buttons-group">
+            <button class="like-btn" id="like-beritaMplsStmi" onclick="toggleLike('beritaMplsStmi')">❤️ <span id="like-count-beritaMplsStmi">96</span> Suka</button>
+            <button class="share-btn" onclick="copyToClipboard()">🔗 Salin Tautan</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER CUSTOM -->
+<footer class="footer-custom">
+  <div class="wrap">
+    <div class="fc-top-grid">
+      
+      <div class="fc-brand-box">
+        <h3>PC IPNU - IPPNU</h3>
+        <span class="subtitle">Kota Blitar</span>
+        <p>Wadah berhimpun, berproses, dan berjuang bersama pelajar Nahdlatul Ulama untuk mewujudkan generasi yang berakhlak, cerdas, serta berdaya saing.</p>
+      </div>
+
+      <div>
+        <h4 class="fc-heading">Pusat Layanan</h4>
+        <ul class="fc-contact-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>pc.ipnuippnu.kotablitar@gmail.com</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <span>+62 812-3456-7891 (Admin Sekretariat)</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="fc-heading">Ikuti Kami</h4>
+        <div class="fc-soc-list">
+          <a href="#" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor"></polygon></svg>
+          </a>
+          <a href="#" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="fc-divider-line">
+      <p class="fc-copyright">© 2026 PC IPNU-IPPNU Kota Blitar. All Rights Reserved.</p>
+      <div class="fc-legal-links">
+        <a href="dokumen.html">Kebijakan Privasi</a>
+        <span>•</span>
+        <a href="dokumen.html">Syarat &amp; Ketentuan</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function bukaBerita(id) {
+    window.location.href = `berita.html?id=${id}`;
+  }
+
+  let currentPelantikanIndex = 0;
+  function geserSlidePelantikan(arah) {
+    const slides = document.querySelectorAll('#sliderPelantikan .slide-item');
+    const dots = document.querySelectorAll('#sliderPelantikan .dot-indicator');
+    if (slides.length === 0) return;
+    
+    slides[currentPelantikanIndex].classList.remove('active');
+    dots[currentPelantikanIndex].classList.remove('active');
+    currentPelantikanIndex = (currentPelantikanIndex + arah + slides.length) % slides.length;
+    slides[currentPelantikanIndex].classList.add('active');
+    dots[currentPelantikanIndex].classList.add('active');
+  }
+
+  function pilihSlidePelantikan(index) {
+    const slides = document.querySelectorAll('#sliderPelantikan .slide-item');
+    const dots = document.querySelectorAll('#sliderPelantikan .dot-indicator');
+    if (slides.length === 0) return;
+    
+    slides[currentPelantikanIndex].classList.remove('active');
+    dots[currentPelantikanIndex].classList.remove('active');
+    currentPelantikanIndex = index;
+    slides[currentPelantikanIndex].classList.add('active');
+    dots[currentPelantikanIndex].classList.add('active');
+  }
+
+  let currentPKIndex = 0;
+  function geserSlidePK(arah) {
+    const slides = document.querySelectorAll('#sliderPK .slide-item');
+    const dots = document.querySelectorAll('#sliderPK .dot-indicator');
+    if (slides.length === 0) return;
+    
+    slides[currentPKIndex].classList.remove('active');
+    dots[currentPKIndex].classList.remove('active');
+    currentPKIndex = (currentPKIndex + arah + slides.length) % slides.length;
+    slides[currentPKIndex].classList.add('active');
+    dots[currentPKIndex].classList.add('active');
+  }
+
+  function pilihSlidePK(index) {
+    const slides = document.querySelectorAll('#sliderPK .slide-item');
+    const dots = document.querySelectorAll('#sliderPK .dot-indicator');
+    if (slides.length === 0) return;
+    
+    slides[currentPKIndex].classList.remove('active');
+    dots[currentPKIndex].classList.remove('active');
+    currentPKIndex = index;
+    slides[currentPKIndex].classList.add('active');
+    dots[currentPKIndex].classList.add('active');
+  }
+
+  function bukaFotoModal(urlFoto, keteranganFoto) {
+    const fotoWindow = window.open("", "_blank");
+    if (fotoWindow) {
+      fotoWindow.document.write(`
+        <!DOCTYPE html>
+        <html lang="id">
+        <head>
+          <meta charset="UTF-8">
+          <title>Pratinjau Foto Dokumentasi</title>
+          <style>
+            body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #021920; color: #fff; text-align: center; }
+            .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+            img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.5); border: 3px solid #22D3EE; }
+            p { font-size: 15px; color: #E2E8F0; margin-top: 15px; line-height: 1.5; font-style: italic; }
+            .btn { display: inline-block; background: #22D3EE; color: #021920; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; cursor: pointer; border: none; }
+            .btn:hover { opacity: 0.9; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <h2>Pratinjau Foto Resmi</h2>
+            <img src="${urlFoto}" alt="${keteranganFoto}">
+            <p>${keteranganFoto}</p>
+            <button class="btn" onclick="window.close()">Tutup Pratinjau</button>
+          </div>
+        </body>
+        </html>
+      `);
+    } else {
+      alert("Gagal membuka pratinjau foto. Periksa pengaturan pop-up browser Anda.");
+    }
+  }
+
+  function toggleLike(beritaId) {
+    const countSpan = document.getElementById(`like-count-${beritaId}`);
+    if (countSpan) {
+      let currentLikes = parseInt(countSpan.innerText);
+      countSpan.innerText = currentLikes + 1;
+    }
+  }
+
+  function copyToClipboard() {
+    navigator.clipboard.writeText(window.location.href);
+    alert("Tautan berita berhasil disalin ke clipboard!");
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        navLinks.classList.toggle("show");
+      });
+
+      navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("show");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove("show");
+        }
+      });
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const beritaId = urlParams.get('id');
+
+    const semuaSection = document.getElementById('semuaBeritaSection');
+    const detailSection = document.getElementById('detailBeritaSection');
+
+    if (beritaId) {
+      if (semuaSection) semuaSection.style.display = 'none';
+      if (detailSection) detailSection.style.display = 'block';
+
+      const targetArticle = document.getElementById(beritaId);
+      if (targetArticle) {
+        targetArticle.style.display = 'block';
+      }
+      window.scrollTo(0, 0);
+    } else {
+      if (detailSection) detailSection.style.display = 'none';
+    }
+    
+    if (!beritaId && semuaSection) {
+      semuaSection.style.display = 'block';
+    }
+  });
+</script>
+</body>
+</html>

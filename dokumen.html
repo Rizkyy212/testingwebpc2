@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pusat Dokumen &amp; Pedoman Persuratan — PC IPNU-IPPNU Kota Blitar</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Palet Utama: Tosca & Cyan Bergradasi Modern */
+    --tosca-950: #021920; 
+    --tosca-900: #042A33; 
+    --tosca-800: #084351;
+    --tosca-700: #0E6073;
+    --tosca-glow: #22D3EE; /* Cyan Glow */
+    --tosca-accent: #06B6D4;
+
+    --ink-dark: #0F172A;
+    --ink-body: #334155;
+    --ink-muted: #64748B;
+    
+    --white: #FFFFFF;
+    --paper: #F8FAFC;
+    --line: #E2E8F0;
+    --radius-lg: 20px;
+    --radius-md: 12px;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink-body);
+    background-color: #F1F5F9;
+    overflow-x: hidden;
+  }
+
+  .wrap {
+    max-width: 1150px;
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* ================= NAVIGASI UTAMA ================= */
+  nav.site-nav {
+    background: linear-gradient(180deg, var(--tosca-950) 0%, var(--tosca-900) 100%) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    width: 100% !important;
+    box-shadow: 0 4px 25px rgba(2, 25, 32, 0.4);
+    border-bottom: 1px solid rgba(34, 211, 238, 0.2);
+  }
+  .nav-inner {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 12px 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  .brand {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    text-decoration: none !important;
+  }
+  .brand-mark {
+    width: 42px !important; 
+    height: 42px !important;
+    background: linear-gradient(135deg, var(--tosca-glow), var(--tosca-accent)) !important;
+    color: var(--tosca-950) !important;
+    font-weight: 800 !important;
+    border-radius: 10px !important;
+    display: flex !important; 
+    align-items: center !important; 
+    justify-content: center !important;
+    font-size: 17px !important;
+    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.35);
+    flex-shrink: 0;
+  }
+  .brand-text .t1 { font-size: 13.5px !important; font-weight: 800 !important; color: #FFFFFF !important; line-height: 1.2 !important; }
+  .brand-text .t2 { font-size: 11px !important; color: var(--tosca-glow) !important; font-weight: 600 !important; letter-spacing: 0.5px; }
+
+  ul.nav-links {
+    display: flex !important;
+    gap: 16px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-items: center !important;
+  }
+  ul.nav-links li a {
+    color: rgba(255,255,255,0.85) !important;
+    text-decoration: none !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s;
+    padding: 6px 10px;
+    border-radius: 6px;
+  }
+  ul.nav-links li a:hover, 
+  ul.nav-links li a.active {
+    color: var(--tosca-glow) !important;
+    background: rgba(34, 211, 238, 0.1);
+  }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--tosca-glow), var(--tosca-accent)) !important;
+    color: var(--tosca-950) !important;
+    padding: 9px 16px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+  }
+  .nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(34, 211, 238, 0.5);
+  }
+
+  button#navToggle {
+    display: none !important;
+    background: transparent !important;
+    border: 2px solid var(--tosca-glow) !important;
+    color: var(--tosca-glow) !important;
+    font-size: 22px !important;
+    cursor: pointer !important;
+    padding: 4px 10px !important;
+    border-radius: 8px !important;
+    line-height: 1 !important;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    background-color: var(--tosca-900);
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(14, 96, 115, 0.6) 0%, transparent 70%),
+      linear-gradient(180deg, var(--tosca-950) 0%, var(--tosca-900) 50%, var(--tosca-800) 100%),
+      linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    background-position: center top;
+    color: #FFFFFF;
+    padding: 85px 0 75px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid var(--tosca-glow);
+    text-align: center;
+  }
+  .page-header h1 {
+    font-size: clamp(30px, 4.2vw, 46px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 16px 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.5px;
+  }
+  .page-header h1 span { 
+    color: var(--tosca-glow); 
+    text-shadow: 0 0 25px rgba(34, 211, 238, 0.4);
+  }
+  .page-header p {
+    font-size: clamp(14px, 1.5vw, 16px);
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  .eyebrow-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(34, 211, 238, 0.12);
+    color: var(--tosca-glow);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 11.5px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 0.8px;
+    border: 1px solid rgba(34, 211, 238, 0.3);
+  }
+
+  /* SECTION & CONTAINER DOKUMEN */
+  .section { padding: 60px 0 90px; }
+
+  /* KOTAK PEDOMAN PERSURATAN TERPISAH (IPNU vs IPPNU) */
+  .pedoman-split-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 35px;
+  }
+  .pedoman-card-box {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: 0 12px 35px rgba(2, 25, 32, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .pedoman-card-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--tosca-glow), var(--tosca-700));
+  }
+  .pedoman-card-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(2, 25, 32, 0.12);
+    border-color: rgba(34, 211, 238, 0.4);
+  }
+
+  .pedoman-card-box h3 {
+    font-size: 19px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--tosca-800);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .badge-icon-glow {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--tosca-glow), var(--tosca-accent));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tosca-950);
+    font-size: 13px;
+    box-shadow: 0 4px 12px rgba(34, 211, 238, 0.3);
+  }
+
+  .pedoman-card-box p, .pedoman-card-box ul {
+    font-size: 13.5px;
+    color: var(--ink-body);
+    line-height: 1.65;
+  }
+  .pedoman-card-box ul {
+    padding-left: 20px;
+    margin: 0 0 22px 0;
+  }
+  .pedoman-card-box li { margin-bottom: 8px; }
+
+  .btn-pedoman-top {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 13.5px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    margin-top: auto;
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.12), rgba(6, 182, 212, 0.15));
+    color: var(--tosca-800);
+    border: 1px solid rgba(34, 211, 238, 0.35);
+  }
+  .btn-pedoman-top:hover {
+    background: linear-gradient(135deg, var(--tosca-glow), var(--tosca-accent));
+    color: var(--tosca-950);
+    border-color: var(--tosca-glow);
+    box-shadow: 0 6px 20px rgba(34, 211, 238, 0.4);
+    transform: translateY(-1px);
+  }
+
+  /* KOTAK INDEKS KONBES */
+  .index-shared-box {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    margin-bottom: 45px;
+    box-shadow: 0 12px 35px rgba(2, 25, 32, 0.05);
+    position: relative;
+    overflow: hidden;
+  }
+  .index-shared-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 6px; height: 100%;
+    background: linear-gradient(180deg, var(--tosca-glow), var(--tosca-900));
+  }
+  .index-shared-box h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--tosca-900);
+    margin-bottom: 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .index-shared-box p {
+    font-size: 14px;
+    color: var(--ink-muted);
+    margin-bottom: 24px;
+    line-height: 1.65;
+  }
+  
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+  .index-item {
+    background: #F8FAFC;
+    padding: 22px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .index-item:hover {
+    border-color: rgba(34, 211, 238, 0.4);
+    box-shadow: 0 6px 20px rgba(2, 25, 32, 0.05);
+  }
+  .index-item code {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--tosca-950), var(--tosca-900));
+    color: var(--tosca-glow);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 12.5px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(34, 211, 238, 0.2);
+  }
+  .index-item h4 {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--tosca-900);
+    margin-bottom: 6px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .index-item p {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  .penjelasan-sp-box {
+    background: #F8FAFC;
+    border: 1px solid var(--line);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    font-size: 13.5px;
+    color: var(--ink-body);
+    line-height: 1.75;
+  }
+  .penjelasan-sp-box h4 {
+    font-size: 15.5px;
+    font-weight: 800;
+    color: var(--tosca-900);
+    margin-bottom: 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  /* FILTER KATEGORI MODERN */
+  .doc-filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .doc-filter button {
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink-muted);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  }
+  .doc-filter button.active, .doc-filter button:hover {
+    background: linear-gradient(135deg, var(--tosca-950), var(--tosca-900));
+    color: var(--tosca-glow);
+    border-color: var(--tosca-glow);
+    box-shadow: 0 4px 15px rgba(2, 25, 32, 0.25);
+  }
+
+  /* LAYOUT DOKUMEN DUA KOLOM */
+  .doc-split-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    position: relative;
+  }
+
+  .doc-column h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--tosca-900);
+    border-bottom: 3px solid var(--tosca-glow);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .doc-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .doc-card-split {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(2, 25, 32, 0.03);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .doc-card-split::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 5px; height: 100%;
+    background: linear-gradient(180deg, var(--tosca-glow), var(--tosca-accent));
+  }
+  .doc-card-split:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(2, 25, 32, 0.08);
+    border-color: rgba(34, 211, 238, 0.3);
+  }
+
+  .doc-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .doc-badge-cat {
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(34, 211, 238, 0.1);
+    border: 1px solid rgba(34, 211, 238, 0.25);
+    color: var(--tosca-800);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .doc-card-split h4 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--tosca-900);
+    margin-bottom: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .doc-card-split p {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+
+  .doc-btn-group {
+    display: flex;
+    gap: 10px;
+  }
+  .btn-action-doc {
+    flex: 1;
+    padding: 11px 16px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 13px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .btn-dl {
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(6, 182, 212, 0.12));
+    border: 1px solid rgba(34, 211, 238, 0.3);
+    color: var(--tosca-800);
+  }
+  .btn-dl:hover {
+    background: linear-gradient(135deg, var(--tosca-glow), var(--tosca-accent));
+    color: var(--tosca-950);
+    border-color: var(--tosca-glow);
+    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.35);
+  }
+
+  /* TOAST NOTIFIKASI UNDUH */
+  #downloadToast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--tosca-950);
+    color: #FFFFFF;
+    border: 1px solid var(--tosca-glow);
+    padding: 12px 26px;
+    border-radius: 50px;
+    font-size: 13.5px;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10000;
+  }
+  #downloadToast.show { transform: translateX(-50%) translateY(0); }
+
+  /* FOOTER CUSTOM */
+  .footer-custom {
+    background-color: var(--tosca-950);
+    color: #94a3b8;
+    padding: 65px 20px 30px;
+    font-family: 'Inter', sans-serif;
+    border-top: 4px solid var(--tosca-700);
+  }
+  .fc-top-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1.1fr 1fr;
+    gap: 45px;
+    margin-bottom: 45px;
+  }
+  .fc-brand-box h3 {
+    font-size: 21px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 6px 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .fc-brand-box .subtitle {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--tosca-glow);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .fc-brand-box p {
+    font-size: 13.5px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .fc-heading {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .fc-heading::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 16px;
+    background: var(--tosca-glow);
+    border-radius: 2px;
+  }
+  .fc-soc-list {
+    display: flex;
+    gap: 10px;
+  }
+  .fc-soc-list a {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+  .fc-soc-list a:hover {
+    background: var(--tosca-glow);
+    color: var(--tosca-950);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(34, 211, 238, 0.3);
+  }
+  .fc-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .fc-contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: #cbd5e1;
+  }
+  .fc-contact-list li svg {
+    color: var(--tosca-glow);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .fc-divider-line {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .fc-legal-links {
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+  }
+  .fc-legal-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .fc-legal-links a:hover {
+    color: var(--tosca-glow);
+  }
+  .fc-copyright {
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 0;
+  }
+
+  /* RESPONSIVE MOBILE */
+  @media (max-width: 960px) {
+    button#navToggle { display: block !important; }
+    .nav-cta { display: none !important; }
+    ul.nav-links {
+      display: none !important;
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      width: 100% !important;
+      background: var(--tosca-950) !important;
+      flex-direction: column !important;
+      padding: 20px 0 !important;
+      gap: 14px !important;
+      text-align: center !important;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5) !important;
+      border-top: 1px solid rgba(255,255,255,0.15) !important;
+      z-index: 9999 !important;
+    }
+    ul.nav-links.show { display: flex !important; }
+    ul.nav-links li { width: 100% !important; }
+    ul.nav-links li a { font-size: 15px !important; padding: 10px 0 !important; display: block !important; }
+
+    .page-header h1 { font-size: 26px !important; }
+    .page-header p { font-size: 13.5px !important; text-align: center !important; }
+
+    .pedoman-split-wrap { grid-template-columns: 1fr !important; }
+    .doc-split-container { grid-template-columns: 1fr !important; gap: 30px; }
+    
+    .fc-top-grid { grid-template-columns: 1fr; gap: 30px; }
+    .fc-divider-line { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGASI UTAMA -->
+<nav class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="../index.html" class="brand">
+      <div class="brand-mark">PC</div>
+      <div class="brand-text">
+        <div class="t1">PC IPNU-IPPNU</div>
+        <div class="t2">Kota Blitar</div>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="organisasi.html">Organisasi</a></li>
+      <li><a href="kegiatan.html">Kegiatan</a></li>
+      <li><a href="berita.html">Berita</a></li>
+      <li><a href="kaderisasi.html">Kaderisasi</a></li>
+      <li><a href="layanan.html">Layanan</a></li>
+      <li><a href="dokumen.html" class="active">Dokumen</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+    <a href="dashboard.html" class="nav-cta">Masuk Admin</a>
+    <button id="navToggle" aria-label="Toggle Menu">☰</button>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="wrap">
+    <div class="eyebrow-pill">ARSIP &amp; TATA NASKAH DINAS</div>
+    <h1>Pusat Dokumen &amp; <span>Pedoman Persuratan</span></h1>
+    <p>Ketentuan Tata Naskah Dinas, Kode Indeks Konbes, Penjelasan Surat Permohonan (SP), dan Unduhan Format Administrasi Terpisah.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    
+    <!-- KOTAK PEDOMAN PERSURATAN TERPISAH (IPNU vs IPPNU) -->
+    <div class="pedoman-split-wrap">
+      
+      <!-- Pedoman IPNU -->
+      <div class="pedoman-card-box">
+        <div>
+          <h3><span class="badge-icon-glow">✓</span> Pedoman Persuratan IPNU</h3>
+          <p><strong>Ikatan Pelajar Nahdlatul Ulama (IPNU)</strong>:</p>
+          <ul>
+            <li><strong>Kop Surat &amp; Atribut:</strong> Menggunakan logo resmi IPNU di sebelah kiri, nomor surat sekretariat putra, dan identitas kelembagaan <em>PC IPNU Kota Blitar</em>.</li>
+            <li><strong>Warna Identitas:</strong> Hijau terang mendominasi atribut administratif dan stempel resmi organisasi.</li>
+            <li><strong>Pengesahan &amp; Penandatanganan:</strong> Surat Kepengurusan (SK) dan Surat Permohonan (SP) ditandatangani oleh Ketua dan Sekretaris Pimpinan IPNU sesuai tingkatannya.</li>
+          </ul>
+        </div>
+        <a href="javascript:void(0)" onclick="triggerDownload('PD_PRT_Pedoman_Administrasi_IPNU.pdf')" class="btn-pedoman-top">📥 Unduh Berkas Arsip PD/PRT IPNU</a>
+      </div>
+
+      <!-- Pedoman IPPNU -->
+      <div class="pedoman-card-box">
+        <div>
+          <h3><span class="badge-icon-glow">✓</span> Pedoman Persuratan IPPNU</h3>
+          <p><strong>Ikatan Pelajar Putri Nahdlatul Ulama (IPPNU)</strong>:</p>
+          <ul>
+            <li><strong>Kop Surat &amp; Atribut:</strong> Menggunakan logo resmi IPPNU di sebelah kiri, penomoran kearsipan putri, dan identitas kelembagaan <em>PC IPPNU Kota Blitar</em>.</li>
+            <li><strong>Warna Identitas:</strong> Kuning emas khas pelajar putri mendominasi atribut administratif dan stempel resmi organisasi.</li>
+            <li><strong>Pengesahan &amp; Penandatanganan:</strong> Surat Kepengurusan (SK) dan Surat Permohonan (SP) ditandatangani oleh Ketua dan Sekretaris Pimpinan IPPNU sesuai tingkat kewenangan putri.</li>
+          </ul>
+        </div>
+        <a href="javascript:void(0)" onclick="triggerDownload('PD_PRT_Pedoman_Administrasi_IPPNU.pdf')" class="btn-pedoman-top">📥 Unduh Berkas Arsip PD/PRT IPPNU</a>
+      </div>
+
+    </div>
+
+    <!-- KOTAK RINCIAN KODE INDEKS KONBES & SURAT PERMOHONAN (SP) -->
+    <div class="index-shared-box">
+      <h3>📌 Rincian Kode Indeks Surat (Sesuai Konbes IPNU-IPPNU) &amp; Surat Permohonan (SP)</h3>
+      <p>Berdasarkan hasil Keputusan Konferensi Besar (Konbes) mengenai Tata Naskah Dinas dan Administrasi Organisasi, berikut adalah rincian kode indeks klasifikasi dan penjelasan surat permohonan:</p>
+      
+      <div class="index-grid">
+        <div class="index-item">
+          <code>Indeks A</code>
+          <h4>Lingkungan Internal IPNU/IPPNU</h4>
+          <p>Digunakan untuk surat-surat yang ditujukan ke dalam struktur internal organisasi, mencakup korespondensi antar pengurus harian, pleno, PR, PK, hingga PAC.</p>
+        </div>
+        <div class="index-item">
+          <code>Indeks B</code>
+          <h4>Lingkungan Eksternal</h4>
+          <p>Digunakan untuk surat-surat yang keluar dan ditujukan kepada pihak luar atau instansi umum, seperti lembaga pemerintah, kepolisian, sekolah/madrasah, dan sponsor.</p>
+        </div>
+        <div class="index-item">
+          <code>Indeks C</code>
+          <h4>NU, Banom &amp; Lembaga</h4>
+          <p>Digunakan khusus untuk surat korespondensi yang ditujukan kepada PCNU, Badan Otonom lain (GP Ansor, Fatayat NU, Pagar Nusa, dsb.), serta lembaga NU.</p>
+        </div>
+      </div>
+
+      <div class="penjelasan-sp-box">
+        <h4>📄 Penjelasan Rinci Surat Permohonan (SP) &amp; Jenis Naskah Dinas Lainnya:</h4>
+        <p style="margin:0;">
+          • <strong>Surat Permohonan (SP):</strong> Naskah resmi yang diterbitkan oleh kepengurusan tingkat bawah (Ranting/Komisariat/Anak Cabang) untuk mengajukan permohonan pengesahan SK kepengurusan, perpanjangan masa khidmat, rekomendasi acara, atau permohonan instruktur/pemandu kaderisasi kepada Pimpinan Cabang.<br>
+          • <strong>Surat Pengesahan (SK):</strong> Dokumen legalitas formal yang diterbitkan oleh Pimpinan Cabang untuk mengesahkan susunan pengurus baru hasil konferensi atau rapat anggota.<br>
+          • <strong>Surat Mandat / Tugas:</strong> Dokumen penugasan resmi bagi kader untuk mewakili organisasi dalam forum pelatihan, musyawarah, atau kegiatan eksternal.
+        </p>
+      </div>
+    </div>
+
+    <!-- Tombol Filter Kategori -->
+    <div class="doc-filter" id="docFilter">
+      <button class="active" onclick="filterDoc('Semua', this)">Semua Dokumen</button>
+      <button onclick="filterDoc('SK', this)">SK &amp; Pengesahan</button>
+      <button onclick="filterDoc('Proposal', this)">Proposal</button>
+      <button onclick="filterDoc('LPJ', this)">LPJ</button>
+      <button onclick="filterDoc('Surat', this)">Surat &amp; Mandat</button>
+      <button onclick="filterDoc('Pedoman', this)">Pedoman</button>
+    </div>
+
+    <!-- Kontainer Pemisah Kiri (IPNU) & Kanan (IPPNU) -->
+    <div class="doc-split-container">
+      
+      <!-- KOLOM KIRI: IPNU -->
+      <div class="doc-column col-ipnu">
+        <h3>📂 Unduh Dokumen &amp; Format IPNU</h3>
+        <div class="doc-stack" id="stackIpnu"></div>
+      </div>
+
+      <!-- KOLOM KANAN: IPPNU -->
+      <div class="doc-column col-ippnu">
+        <h3>📂 Unduh Dokumen &amp; Format IPPNU</h3>
+        <div class="doc-stack" id="stackIppnu"></div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Toast Notifikasi Unduh -->
+<div id="downloadToast">📥 Berkas dokumen berhasil diunduh!</div>
+
+<!-- FOOTER CUSTOM -->
+<footer class="footer-custom">
+  <div class="wrap">
+    <div class="fc-top-grid">
+      
+      <div class="fc-brand-box">
+        <h3>PC IPNU - IPPNU</h3>
+        <span class="subtitle">Kota Blitar</span>
+        <p>Wadah berhimpun, berproses, dan berjuang bersama pelajar Nahdlatul Ulama untuk mewujudkan generasi yang berakhlak, cerdas, serta berdaya saing.</p>
+      </div>
+
+      <div>
+        <h4 class="fc-heading">Pusat Layanan</h4>
+        <ul class="fc-contact-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>pc.ipnuippnu.kotablitar@gmail.com</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <span>+62 812-3456-7891 (Admin Sekretariat)</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="fc-heading">Ikuti Kami</h4>
+        <div class="fc-soc-list">
+          <a href="#" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor"></polygon></svg>
+          </a>
+          <a href="#" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="fc-divider-line">
+      <p class="fc-copyright">© 2026 PC IPNU-IPPNU Kota Blitar. All Rights Reserved.</p>
+      <div class="fc-legal-links">
+        <a href="dokumen.html">Kebijakan Privasi</a>
+        <span>•</span>
+        <a href="dokumen.html">Syarat &amp; Ketentuan</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Data Dokumen Lengkap Terpisah Kategori & Organisasi
+  const allDocuments = [
+    // --- IPNU ---
+    {
+      org: "IPNU",
+      category: "SK",
+      title: "Draft Format Surat Pengesahan (SK) & Formatur IPNU",
+      desc: "Format resmi pengajuan dan penerbitan Surat Pengesahan / SK kepengurusan PAC, PK, atau PR IPNU.",
+      filename: "Format_SK_Dan_Formatur_IPNU.docx"
+    },
+    {
+      org: "IPNU",
+      category: "Surat",
+      title: "Template Surat Mandat & Tugas Kegiatan IPNU",
+      desc: "Format baku pemberian mandat resmi utusan konferensi, diklat, atau delegasi acara kader.",
+      filename: "Surat_Mandat_IPNU.docx"
+    },
+    {
+      org: "IPNU",
+      category: "Proposal",
+      title: "Template Proposal MAKESTA IPNU",
+      desc: "Format baku proposal Masa Kesetiaan Anggota Pimpinan Ranting / Komisariat IPNU.",
+      filename: "Proposal_Makesta_IPNU.docx"
+    },
+    {
+      org: "IPNU",
+      category: "Surat",
+      title: "Template Surat Permohonan (SP) Indeks A, B, C IPNU",
+      desc: "Kumpulan format surat keluar lengkap dengan penomoran indeks internal, eksternal, dan NU.",
+      filename: "Template_Surat_Indeks_IPNU.docx"
+    },
+    {
+      org: "IPNU",
+      category: "LPJ",
+      title: "Format LPJ Kegiatan & Keuangan IPNU",
+      desc: "Sistematika pelaporan pertanggungjawaban kegiatan dan rekapitulasi dana kepengurusan IPNU.",
+      filename: "Format_LPJ_IPNU.docx"
+    },
+    {
+      org: "IPNU",
+      category: "Pedoman",
+      title: "PD / PRT & Pedoman Administrasi IPNU",
+      desc: "Peraturan Dasar/Rumah Tangga dan aturan baku penulisan administrasi IPNU.",
+      filename: "PD_PRT_Pedoman_Administrasi_IPNU.pdf"
+    },
+
+    // --- IPPNU ---
+    {
+      org: "IPPNU",
+      category: "SK",
+      title: "Draft Format Surat Pengesahan (SK) & Formatur IPPNU",
+      desc: "Format resmi pengajuan dan penerbitan Surat Pengesahan / SK kepengurusan PAC, PK, atau PR IPPNU.",
+      filename: "Format_SK_Dan_Formatur_IPPNU.docx"
+    },
+    {
+      org: "IPPNU",
+      category: "Surat",
+      title: "Template Surat Mandat & Tugas Kegiatan IPPNU",
+      desc: "Format baku pemberian mandat resmi utusan konferensi, diklat, atau delegasi acara kader putri.",
+      filename: "Surat_Mandat_IPPNU.docx"
+    },
+    {
+      org: "IPPNU",
+      category: "Proposal",
+      title: "Template Proposal MAKESTA IPPNU",
+      desc: "Format baku proposal Masa Kesetiaan Anggota Pimpinan Ranting / Komisariat IPPNU.",
+      filename: "Proposal_Makesta_IPPNU.docx"
+    },
+    {
+      org: "IPPNU",
+      category: "Surat",
+      title: "Template Surat Permohonan (SP) Indeks A, B, C IPPNU",
+      desc: "Kumpulan format surat keluar lengkap dengan penomoran indeks internal, eksternal, dan NU.",
+      filename: "Template_Surat_Indeks_IPPNU.docx"
+    },
+    {
+      org: "IPPNU",
+      category: "LPJ",
+      title: "Format LPJ Kegiatan & Keuangan IPPNU",
+      desc: "Sistematika pelaporan pertanggungjawaban kegiatan dan rekapitulasi dana IPPNU.",
+      filename: "Format_LPJ_IPPNU.docx"
+    },
+    {
+      org: "IPPNU",
+      category: "Pedoman",
+      title: "PD / PRT & Pedoman Administrasi IPPNU",
+      desc: "Peraturan Dasar/Rumah Tangga dan aturan baku penulisan administrasi IPPNU.",
+      filename: "PD_PRT_Pedoman_Administrasi_IPPNU.pdf"
+    }
+  ];
+
+  // Fungsi Render Dokumen
+  function renderSplitDocuments(selectedCategory) {
+    const stackIpnu = document.getElementById('stackIpnu');
+    const stackIppnu = document.getElementById('stackIppnu');
+    
+    if(!stackIpnu || !stackIppnu) return;
+
+    stackIpnu.innerHTML = '';
+    stackIppnu.innerHTML = '';
+
+    const filteredIpnu = selectedCategory === 'Semua' 
+      ? allDocuments.filter(d => d.org === 'IPNU')
+      : allDocuments.filter(d => d.org === 'IPNU' && d.category === selectedCategory);
+
+    const filteredIppnu = selectedCategory === 'Semua' 
+      ? allDocuments.filter(d => d.org === 'IPPNU')
+      : allDocuments.filter(d => d.org === 'IPPNU' && d.category === selectedCategory);
+
+    // Render IPNU
+    if(filteredIpnu.length === 0) {
+      stackIpnu.innerHTML = `<p style="color:var(--ink-muted); font-size:13px; padding:15px; text-align:center;">Tidak ada dokumen IPNU dalam kategori ini.</p>`;
+    } else {
+      filteredIpnu.forEach(doc => stackIpnu.appendChild(createDocCard(doc)));
+    }
+
+    // Render IPPNU
+    if(filteredIppnu.length === 0) {
+      stackIppnu.innerHTML = `<p style="color:var(--ink-muted); font-size:13px; padding:15px; text-align:center;">Tidak ada dokumen IPPNU dalam kategori ini.</p>`;
+    } else {
+      filteredIppnu.forEach(doc => stackIppnu.appendChild(createDocCard(doc)));
+    }
+  }
+
+  // Pembuat Elemen Kartu
+  function createDocCard(doc) {
+    const card = document.createElement('div');
+    card.className = 'doc-card-split';
+    card.innerHTML = `
+      <div class="doc-meta-row">
+        <span class="doc-badge-cat">${doc.category}</span>
+        <span style="font-size:11.5px; color:var(--ink-muted); font-weight:600;">Format Berkas</span>
+      </div>
+      <h4>${doc.title}</h4>
+      <p>${doc.desc}</p>
+      <div class="doc-btn-group">
+        <a href="javascript:void(0)" onclick="triggerDownload('${doc.filename}')" class="btn-action-doc btn-dl">📥 Unduh Berkas Arsip</a>
+      </div>
+    `;
+    return card;
+  }
+
+  // Fungsi Filter
+  function filterDoc(category, btnElement) {
+    const buttons = document.querySelectorAll('.doc-filter button');
+    buttons.forEach(b => b.classList.remove('active'));
+    btnElement.classList.add('active');
+    renderSplitDocuments(category);
+  }
+
+  // Simulasi Unduh
+  function triggerDownload(filename) {
+    const judulToast = document.getElementById('downloadToast');
+    if (judulToast) {
+      judulToast.innerHTML = `📥 Mengunduh <strong>${filename}</strong>...`;
+      judulToast.classList.add('show');
+      setTimeout(() => {
+        judulToast.classList.remove('show');
+      }, 3500);
+    }
+  }
+
+  // Inisialisasi
+  document.addEventListener("DOMContentLoaded", () => {
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        navLinks.classList.toggle("show");
+      });
+
+      navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("show");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove("show");
+        }
+      });
+    }
+
+    renderSplitDocuments('Semua');
+  });
+</script>
+</body>
+</html>
