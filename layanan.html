@@ -8,11 +8,11 @@
 <style>
   :root {
     /* Palet Tosca Bergradasi & Dinamis Sesuai Portal Berita */
-    --tosca-950: #021920; /* Sangat Gelap (Deep Space Base) */
-    --tosca-900: #042A33; /* Tosca Gelap Utama */
-    --tosca-800: #084351; /* Tosca Medium-Dark */
-    --tosca-700: #0E6073; /* Tosca Aksen */
-    --tosca-glow: #22D3EE; /* Cyan Terang Bercahaya (Glow & Highlight) */
+    --tosca-950: #021920; 
+    --tosca-900: #042A33; 
+    --tosca-800: #084351; 
+    --tosca-700: #0E6073; 
+    --tosca-glow: #22D3EE; 
     --tosca-soft: #0E3B46; 
     
     --ink: #0f172a;
@@ -41,7 +41,7 @@
     padding-right: 20px;
   }
 
-  /* ================= NAVIGASI UTAMA (DISAMAKAN DENGAN PORTAL BERITA) ================= */
+  /* ================= NAVIGASI UTAMA (PROPORSIONAL & MOBILE FRIENDLY) ================= */
   nav.site-nav {
     background: linear-gradient(180deg, var(--tosca-950) 0%, var(--tosca-900) 100%) !important;
     position: sticky !important;
@@ -58,12 +58,14 @@
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
+    gap: 15px;
   }
   .brand {
     display: flex !important;
     align-items: center !important;
     gap: 12px !important;
     text-decoration: none !important;
+    flex-shrink: 0;
   }
   .brand-mark {
     width: 42px !important; 
@@ -79,12 +81,12 @@
     box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
     flex-shrink: 0;
   }
-  .brand-text .t1 { font-size: 13.5px !important; font-weight: 800 !important; color: #FFFFFF !important; line-height: 1.2 !important; }
-  .brand-text .t2 { font-size: 11px !important; color: var(--tosca-glow) !important; font-weight: 600 !important; letter-spacing: 0.5px; }
+  .brand-text .t1 { font-size: 13.5px !important; font-weight: 800 !important; color: #FFFFFF !important; line-height: 1.2 !important; white-space: nowrap; }
+  .brand-text .t2 { font-size: 11px !important; color: var(--tosca-glow) !important; font-weight: 600 !important; letter-spacing: 0.5px; white-space: nowrap; }
 
   ul.nav-links {
     display: flex !important;
-    gap: 16px !important;
+    gap: 8px !important;
     list-style: none !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -96,8 +98,9 @@
     font-size: 13px !important;
     font-weight: 600 !important;
     transition: all 0.2s;
-    padding: 6px 10px;
+    padding: 7px 10px;
     border-radius: 6px;
+    white-space: nowrap;
   }
   ul.nav-links li a:hover, 
   ul.nav-links li a.active {
@@ -116,6 +119,8 @@
     display: inline-block !important;
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+    white-space: nowrap;
+    flex-shrink: 0;
   }
   .nav-cta:hover {
     transform: translateY(-2px);
@@ -132,6 +137,7 @@
     padding: 4px 10px !important;
     border-radius: 8px !important;
     line-height: 1 !important;
+    flex-shrink: 0;
   }
 
   /* PAGE HEADER */
@@ -190,7 +196,7 @@
   .section { padding: 60px 0 80px; }
   .section.alt { background: #E2E8F0; border-top: 1px solid var(--line); }
 
-  /* Tab Navigasi Pilihan Layanan */
+  /* Tab Navigasi Pilihan Layanan (Responsive Scroll di HP) */
   .service-nav-tabs {
     display: flex;
     gap: 12px;
@@ -310,6 +316,7 @@
     color: var(--ink);
     background: #FFFFFF;
     transition: all 0.2s ease;
+    width: 100%;
   }
   .field input::placeholder, .field textarea::placeholder { color: #94A3B8; }
   .field input:focus, .field select:focus, .field textarea:focus {
@@ -341,7 +348,7 @@
   }
   .file-upload-box small { font-size: 12px; color: #475569; font-weight: 600; display: block; }
 
-  .file-upload-wrapper { width: 100%; display: flex; justify-content: center; margin-top: 4px; }
+  .file-upload-wrapper { width: 100%; display: flex; justify-content: center; margin-top: 4px; overflow: hidden; }
   .file-upload-wrapper input[type="file"] { font-size: 12px; color: #334155; cursor: pointer; max-width: 100%; }
   .file-upload-wrapper input[type="file"]::-webkit-file-upload-button {
     background: #FFFFFF; border: 1px solid #CBD5E1; border-radius: 8px; padding: 6px 14px; font-weight: 700; color: #0F172A; cursor: pointer; margin-right: 8px; transition: all 0.2s ease;
@@ -508,6 +515,17 @@
     margin: 0;
   }
 
+  /* RESPONSIVE BREAKPOINTS (TABLET & MOBILE) */
+  @media (max-width: 1200px) {
+    ul.nav-links {
+      gap: 4px !important;
+    }
+    ul.nav-links li a {
+      font-size: 12px !important;
+      padding: 6px 8px !important;
+    }
+  }
+
   @media (max-width: 960px) {
     button#navToggle {
       display: block !important;
@@ -545,10 +563,25 @@
     .page-header h1 { font-size: 26px !important; }
     .page-header p { font-size: 13.5px !important; text-align: center !important; }
 
+    .service-nav-tabs {
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding-bottom: 6px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .tab-btn {
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
     .form-grid { grid-template-columns: 1fr; }
     .field.full { grid-column: span 1; }
-    .form-panel { padding: 24px; }
+    .form-panel { padding: 20px 16px; }
     
+    .track-box { padding: 20px 16px; }
+    .track-input-row { flex-direction: column; }
+    .track-input-row button { width: 100%; }
+
     .fc-top-grid { grid-template-columns: 1fr; gap: 30px; }
     .fc-divider-line { flex-direction: column; text-align: center; }
   }
@@ -597,9 +630,9 @@
     
     <!-- Tab Navigasi Pilihan Layanan -->
     <div class="service-nav-tabs">
-      <button class="tab-btn active" onclick="switchForm('sp', event)">📄 Pengajuan Surat Permohonan (SP)</button>
-      <button class="tab-btn" onclick="switchForm('kaderisasi', event)">🎯 Perizinan &amp; Proposal Kaderisasi</button>
-      <button class="tab-btn" onclick="switchForm('sertifikat', event)">📜 Penerbitan &amp; Validasi Sertifikat</button>
+      <button class="tab-btn active" onclick="switchForm('sp', event)">📄 Surat Permohonan (SP)</button>
+      <button class="tab-btn" onclick="switchForm('kaderisasi', event)">🎯 Perizinan Kaderisasi</button>
+      <button class="tab-btn" onclick="switchForm('sertifikat', event)">📜 Validasi Sertifikat</button>
     </div>
 
     <!-- ================= FORM 1: SURAT PERMOHONAN (SP) & REKOMENDASI ================= -->
@@ -692,7 +725,7 @@
         </div>
 
         <div class="field">
-          <label>Unggah Berkas Berita Acara &amp; Formatur (ZIP / PDF)</label>
+          <label>Unggah Berita Acara &amp; Formatur (ZIP / PDF)</label>
           <div class="file-upload-box">
             <span>Lampirkan Berita Acara Rapat &amp; Susunan Formatur</span>
             <small>(Maks. 5MB)</small>
